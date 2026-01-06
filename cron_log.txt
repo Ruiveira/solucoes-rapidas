@@ -2,3 +2,9 @@
 Produto de Alta Probabilidade: Ganhar dinheiro com Milhas
 --- SITEMAP GERADO PARA O GOOGLE ---
 --- SUCESSO! Robô escolheu e publicou: Ganhar dinheiro com Milhas ---
+Traceback (most recent call last):
+  File "integrador.py", line 1, in <module>
+    import random, arquiteto, escoteiro, os, datetime
+  File "/Users/Alan/nexus_alpha/arquiteto.py", line 1, in <module>
+    import stripe
+ModuleNotFoundError: No module named 'stripe'
