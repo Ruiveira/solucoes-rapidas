@@ -1,26 +1,28 @@
-import requests
-import json
-
-def buscar_demandas():
-    # Buscaremos sementes de busca que indicam "necessidade de ferramenta"
-    sementes = ["como calcular ", "gerador de ", "calculadora de ", "modelo de planilha "]
-    demandas_encontradas = []
-
-    for semente in sementes:
-        # API de sugestão do Google (pública e gratuita)
-        url = f"http://suggestqueries.google.com/complete/search?client=firefox&q={semente}"
-        try:
-            resposta = requests.get(url)
-            # O Google retorna uma lista: [termo_original, [sugestoes]]
-            sugestoes = resposta.json()[1] 
-            demandas_encontradas.extend(sugestoes)
-        except Exception as e:
-            print(f"Erro ao buscar: {e}")
-    
-    return demandas_encontradas
-
-if __name__ == "__main__":
-    print("--- INICIANDO RASTREIO DE DEMANDAS ---")
-    resultados = buscar_demandas()
-    for r in resultados:
-        print(f"Demanda detectada: {r}")
+def criar_pagina_vendas(tema, link_stripe):
+    html = f"""
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solução: {tema}</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-slate-50 flex items-center justify-center min-h-screen p-6">
+        <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl p-8 text-center border border-slate-100">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-4 leading-tight">
+                Domine agora: <br><span class="text-indigo-600">{tema}</span>
+            </h1>
+            <p class="text-slate-600 mb-8 text-lg">
+                Nossa inteligência processou os dados e gerou o guia definitivo para você resolver isso em minutos, sem complicações.
+            </p>
+            <a href="{link_stripe}" class="inline-block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-6 rounded-2xl transition-all transform hover:scale-105 shadow-lg shadow-indigo-200 text-xl">
+                ACESSO IMEDIATO →
+            </a>
+            <p class="mt-6 text-sm text-slate-400">Entrega automática por e-mail após o pagamento.</p>
+        </div>
+    </body>
+    </html>
+    """
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(html)
