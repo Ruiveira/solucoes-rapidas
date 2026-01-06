@@ -13,7 +13,10 @@ def criar_pagina_vendas(tema, link_stripe):
                 box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
                 transition: all 0.3s ease;
             }}
-            .btn-vendas:hover {{ transform: scale(1.02); brightness: 1.1; }}
+            .btn-vendas:hover {{ 
+                transform: scale(1.02); 
+                filter: brightness(1.2);
+            }}
         </style>
     </head>
     <body class="bg-[#050505] text-slate-200 font-sans">
@@ -30,7 +33,7 @@ def criar_pagina_vendas(tema, link_stripe):
             </h1>
 
             <p class="text-xl text-slate-400 mb-10 leading-relaxed">
-                Este não é mais um curso. É o <span class="text-white font-bold">Método Direto</span> para você dominar {tema} e obter resultados imediatos, sem perder tempo com teorias inúteis.
+                Este não é mais um curso. É o <span class="text-white font-bold">Método Direto</span> para você dominar {tema} e obter resultados imediatos.
             </p>
 
             <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl mb-10">
@@ -44,11 +47,6 @@ def criar_pagina_vendas(tema, link_stripe):
                     ADQUIRIR AGORA →
                 </a>
                 <p class="mt-4 text-xs text-slate-500 italic">Oferta válida apenas para o tráfego orgânico de hoje.</p>
-            </div>
-
-            <div class="flex justify-center items-center gap-8 opacity-40">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" class="h-6 filter grayscale brightness-200" alt="Stripe">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/SSL_Certified_Logo.png" class="h-10 filter grayscale brightness-200" alt="SSL">
             </div>
         </div>
     </body>
