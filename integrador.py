@@ -1,48 +1,25 @@
-import random
-import arquiteto
-import escoteiro
-import os
-import datetime
+import random, arquiteto, escoteiro, os, datetime
 
-# Lista massiva para o modo 24 horas (Alta Conversão)
-temas_venda_rapida = [
-    "Como calcular decimo terceiro", "Guia: Sair das Dividas em 30 dias",
-    "Planilha Financeira Automática", "Como aumentar seu Score de Crédito",
-    "Ganhar dinheiro com Milhas", "Manual do Reembolso de Impostos",
-    "Aposentadoria Antecipada", "Direitos Trabalhistas Urgentes",
-    "Como baixar parcelas do financiamento", "Segredo do Score 900",
-    "Guia Prático: Limpar Nome sem Pagar", "Como declarar Cripto no IR",
-    "Aumento de Limite de Cartão", "Como ganhar Cashback em tudo",
-    "Renda Extra com ChatGPT", "Modelo de Petição para Pequenas Causas",
-    "Como contestar multas de trânsito", "Guia do Auxílio Doença",
-    "Planilha de Gastos 2026", "Como investir com 100 reais"
+# Temas com gatilhos de "Desejo de Alívio"
+temas_magneticos = [
+    "Recuperação de Impostos Retidos", "O Segredo do Score 900",
+    "Protocolo: Sair das Dívidas", "Manual da Renda Extra Online",
+    "Estratégia: Juros Abusivos Nunca Mais", "Investimento Blindado",
+    "Como Baixar Parcelas do Carro", "Auxílio Doença sem Erros"
 ]
 
-def gerar_sitemap():
-    data_atual = datetime.datetime.now().strftime("%Y-%m-%d")
-    conteudo = f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://ruiveira.github.io/solucoes-rapidas/</loc>
-        <lastmod>{data_atual}</lastmod>
-        <changefreq>hourly</changefreq>
-        <priority>1.0</priority>
-    </url>
-</urlset>"""
-    with open("sitemap.xml", "w") as f:
-        f.write(conteudo)
-
 def rodar_sistema():
-    agora = datetime.datetime.now().strftime("%H:%M")
-    print(f"--- NEXUS-ALPHA ATIVO ({agora}) ---")
-    tema = random.choice(temas_venda_rapida)
+    print(f"--- NEXUS-ALPHA ATUALIZANDO ({datetime.datetime.now().strftime('%H:%M')}) ---")
+    tema = random.choice(temas_magneticos)
     link = arquiteto.criar_produto_e_link(tema)
     escoteiro.criar_pagina_vendas(tema, link)
-    gerar_sitemap()
     
-    # Envia para o GitHub para manter o site vivo
-    os.system("git add . && git commit -m 'Atualização Automática Nexus-Alpha' && git push origin main")
-    print(f"--- SUCESSO: Produto '{tema}' no ar 24h ---")
+    # Atualiza Sitemap para SEO Orgânico
+    with open("sitemap.xml", "w") as f:
+        f.write(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://ruiveira.github.io/solucoes-rapidas/</loc><changefreq>hourly</changefreq></url></urlset>')
+
+    os.system("git add . && git commit -m 'Nexus-Alpha: Psicologia de Vendas Aplicada' && git push origin main")
+    print(f"--- SUCESSO: '{tema}' está vendendo agora ---")
 
 if __name__ == "__main__":
     rodar_sistema()
