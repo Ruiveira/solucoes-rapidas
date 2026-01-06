@@ -1,6 +1,6 @@
 def criar_pagina_vendas(tema, link_stripe):
-    # O robô gera palavras-chave automáticas para o Google te achar (Tráfego Orgânico)
-    keywords = f"{tema}, solução rápida, como resolver {tema}, guia passo a passo, oficial"
+    # Inteligência de SEO Agressivo
+    keywords = f"{tema}, urgente, solução, oficial, acesso imediato"
     
     html = f"""
     <!DOCTYPE html>
@@ -8,27 +8,57 @@ def criar_pagina_vendas(tema, link_stripe):
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A solução definitiva para {tema}. Acesse agora.">
-        <meta name="keywords" content="{keywords}">
-        <title>OFICIAL: {tema}</title>
+        <title>ACESSO CONFIRMADO: {tema}</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            @keyframes pulse-gold {{
+                0% {{ box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7); }}
+                70% {{ box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); }}
+                100% {{ box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }}
+            }}
+            .btn-glow {{ animation: pulse-gold 2s infinite; }}
+        </style>
     </head>
-    <body class="bg-slate-900 flex items-center justify-center min-h-screen p-6 font-sans">
-        <div class="max-w-md w-full bg-white rounded-[2.5rem] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] p-10 text-center border-t-8 border-indigo-600">
-            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Acesso Exclusivo</span>
-            <h1 class="text-3xl font-black text-slate-900 mt-4 mb-4 leading-tight">
-                Resolva agora: <br><span class="text-indigo-600">{tema}</span>
+    <body class="bg-[#0f172a] text-white font-sans antialiased">
+        <div class="max-w-xl mx-auto px-6 py-12 md:py-24 text-center">
+            <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-full mb-8">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-widest">Sistema Nexus-Alpha Identificou uma Pendência</span>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight">
+                Liberte-se agora: <br>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">
+                    {tema}
+                </span>
             </h1>
-            <p class="text-slate-500 mb-8 text-base leading-relaxed">
-                Nossa IA identificou que você precisa de uma solução para <b>{tema}</b>. Libere o acesso ao guia prático e automatizado.
+
+            <p class="text-slate-400 text-lg mb-10 leading-relaxed max-w-lg mx-auto">
+                Não perca tempo com métodos que não funcionam. Nossa inteligência processou os dados e gerou o <b>Protocolo de Acesso Rápido</b> para você resolver isso hoje.
             </p>
-            <a href="{link_stripe}" class="inline-block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-5 px-6 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-indigo-300 text-xl tracking-tight">
-                QUERO ESSA SOLUÇÃO →
-            </a>
-            <div class="mt-8 flex justify-center gap-2">
-                <div class="h-1 w-12 bg-slate-200 rounded-full"></div>
-                <div class="h-1 w-12 bg-indigo-600 rounded-full"></div>
-                <div class="h-1 w-12 bg-slate-200 rounded-full"></div>
+
+            <div class="space-y-4">
+                <a href="{link_stripe}" class="btn-glow inline-block w-full bg-indigo-600 hover:bg-indigo-500 text-white font-black py-6 px-8 rounded-2xl transition-all text-xl md:text-2xl shadow-2xl">
+                    OBTER ACESSO IMEDIATO
+                </a>
+                <p class="text-slate-500 text-sm flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                    Pagamento Criptografado e Seguro
+                </p>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 opacity-60">
+                <div class="text-left">
+                    <p class="text-xs uppercase tracking-widest font-bold">Entrega via E-mail</p>
+                    <p class="text-slate-400 text-sm">Imediata após confirmação</p>
+                </div>
+                <div class="text-left">
+                    <p class="text-xs uppercase tracking-widest font-bold">Satisfação</p>
+                    <p class="text-slate-400 text-sm">Método testado e validado</p>
+                </div>
             </div>
         </div>
     </body>
