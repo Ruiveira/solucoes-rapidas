@@ -1,7 +1,7 @@
 import stripe
 
 # COLOQUE SUA CHAVE DA STRIPE ENTRE AS ASPAS ABAIXO
-stripe.api_key = "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"
+stripe.api_key = ""
 
 def criar_produto_e_link(nome_da_demanda):
     try:
