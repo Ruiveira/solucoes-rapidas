@@ -1,12 +1,12 @@
 import os
 
 def criar_estilo(tema_slug):
-    # Imagens contextuais de interação humana com degradê de sombra
+    # Curadoria de Imagens: Homem e Mulher em contextos de ALTA PERFORMANCE (sem rádio)
     fotos = {
-        "score": "https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?q=80&w=1600&auto=format&fit=crop",
-        "renda": "https://images.unsplash.com/photo-1591115765373-520b7a217294?q=80&w=1600&auto=format&fit=crop",
-        "planilha": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop",
-        "padrao": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop"
+        "score": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop", # Foco em confiança e análise
+        "renda": "https://images.unsplash.com/photo-1573161559525-460699b66235?q=80&w=1600&auto=format&fit=crop", # Foco em lucros e estratégia
+        "planilha": "https://images.unsplash.com/photo-1600880212340-02344079113f?q=80&w=1600&auto=format&fit=crop", # Foco em dados e gestão luxo
+        "padrao": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop"  # Consultoria moderna
     }
     img = fotos.get(tema_slug, fotos["padrao"])
 
@@ -26,7 +26,7 @@ def criar_estilo(tema_slug):
         
         .bg-hero {{
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.75) 0%, rgba(2, 6, 23, 1) 100%), url('{img}');
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, rgba(2, 6, 23, 1) 100%), url('{img}');
             background-size: cover; background-position: center; z-index: -1;
         }}
 
@@ -42,7 +42,7 @@ def criar_estilo(tema_slug):
         .glass {{ 
             background: rgba(255, 255, 255, 0.03); 
             border: 1px solid rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(20px); border-radius: 3rem;
+            backdrop-filter: blur(25px); border-radius: 3rem;
         }}
 
         .btn-venda {{ 
@@ -53,7 +53,7 @@ def criar_estilo(tema_slug):
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }}
 
-        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }}
+        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }}
     </style>
     """
 
@@ -76,7 +76,7 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
                 <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2 italic">Oferta Vitalícia</span>
                 <div class="white-text titulo-master text-6xl mb-8 tracking-tighter" style="color: white;">{preco}</div>
                 <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
-                <div class="flex justify-center gap-6 mt-8 opacity-70">
+                <div class="flex justify-center gap-6 mt-8 opacity-80">
                     <i class="fab fa-apple-pay text-3xl"></i>
                     <i class="fab fa-cc-visa text-3xl"></i>
                     <i class="fab fa-cc-mastercard text-3xl"></i>
@@ -98,7 +98,7 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
             <header class="text-left mb-20">
-                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text">AI Strategy Mode</div>
+                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text">AI Premium Environment</div>
                 <h1 class="titulo-master text-6xl md:text-[100px] uppercase italic mb-8">#{tema}</h1>
                 <p class="max-w-xl text-slate-300 text-xl leading-relaxed mb-10">{copy_convencimento}</p>
                 {f'<a href="detalhes.html" class="btn-venda px-12 py-5 rounded-full uppercase tracking-widest text-sm">Explorar Solução</a>' if not eh_detalhes else ""}
