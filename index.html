@@ -12,7 +12,9 @@
         
         body { 
             font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 1)), url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
             color: #fff; 
             min-height: 100vh;
@@ -21,45 +23,45 @@
         .titulo-master { 
             font-family: 'Montserrat', sans-serif; 
             font-weight: 800;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
         }
 
         .glass { 
-            background: rgba(255, 255, 255, 0.02); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            backdrop-filter: blur(20px); 
+            background: rgba(15, 23, 42, 0.6); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(15px); 
         }
 
-        .btn-action { 
-            background: #ffffff; 
+        .btn-venda { 
+            background: #fff; 
             color: #000; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            transition: all 0.3s ease; 
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
         }
 
-        .btn-action:hover { 
-            transform: scale(1.03); 
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4); 
+        .btn-venda:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2); 
         }
+
+        .icon-accent { color: #818cf8; }
     </style>
     
     </head>
-    <body class="py-20 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-4xl md:text-7xl titulo-master uppercase mb-10 leading-tight">O Segredo do Score 900</h1>
-            <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-16">O método <strong>O Segredo do Score 900</strong> foi estruturado para entregar clareza e resultados reais. Removemos barreiras técnicas e entregamos um protocolo prático para você dominar este tema com segurança e autoridade.</p>
-            
-            <div class="glass p-12 rounded-[3rem] max-w-lg mx-auto mb-20">
-                <p class="text-indigo-400 text-xs font-bold uppercase mb-4">Investimento Único</p>
-                <div class="titulo-master text-6xl mb-10">R$ 19,90</div>
-                <a href="detalhes.html" class="btn-action block w-full py-6 rounded-2xl text-xl uppercase tracking-widest">
-                    EXPLORAR MAIS
-                </a>
-                <div class="flex justify-center gap-6 mt-10 text-white/50 text-3xl">
-                    <i class="fab fa-apple-pay"></i> <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fas fa-barcode text-2xl"></i>
+    <body class="py-12 px-6">
+        <div class="max-w-6xl mx-auto">
+            <header class="mb-20">
+                <div class="flex items-center gap-2 mb-8">
+                    <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center text-black font-black italic">N</div>
+                    <span class="font-bold tracking-widest uppercase text-xs">Nexus Alpha</span>
                 </div>
-            </div>
+                <h1 class="text-6xl md:text-8xl titulo-master uppercase mb-8 max-w-4xl tracking-tighter italic">#O Segredo do Score 900</h1>
+                <p class="max-w-xl text-slate-300 text-lg leading-relaxed mb-10">O protocolo <strong>O Segredo do Score 900</strong> foi estruturado para entregar clareza e resultados reais. Removemos barreiras técnicas e entregamos o mapa para você dominar este tema com segurança e autoridade.</p>
+                
+                <a href="detalhes.html" class="btn-venda inline-block px-12 py-5 rounded-full uppercase tracking-widest text-sm">Saiba Mais</a>
+            </header>
 
             
 
