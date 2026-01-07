@@ -85,3 +85,10 @@ Traceback (most recent call last):
   File "/Users/Alan/nexus_alpha/arquiteto.py", line 1, in <module>
     import stripe
 ModuleNotFoundError: No module named 'stripe'
+Traceback (most recent call last):
+  File "integrador.py", line 1, in <module>
+    import escoteiro
+  File "/Users/Alan/nexus_alpha/escoteiro.py", line 84
+    return f"""
+           ^
+SyntaxError: f-string expression part cannot include a backslash
