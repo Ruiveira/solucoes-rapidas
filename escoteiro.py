@@ -1,7 +1,7 @@
 import os
 
 def criar_estilo(tema_slug):
-    # Imagens contextuais de interação humana
+    # Imagens contextuais de interação humana com degradê de sombra
     fotos = {
         "score": "https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?q=80&w=1600&auto=format&fit=crop",
         "renda": "https://images.unsplash.com/photo-1591115765373-520b7a217294?q=80&w=1600&auto=format&fit=crop",
@@ -46,8 +46,8 @@ def criar_estilo(tema_slug):
         }}
 
         .btn-venda {{ 
-            background: #ffffff; /* BOTÃO BRANCO */
-            color: #000000; /* TEXTO PRETO */
+            background: #ffffff; 
+            color: #000000; 
             font-family: 'Montserrat', sans-serif;
             font-weight: 800; 
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -68,7 +68,7 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
                 <h3 class="titulo-master text-2xl mb-6 uppercase italic">#Plano de Ação</h3>
                 <ul class="space-y-4">
                     <li class="white-text"><i class="fas fa-bolt mr-2" style="color: #FFD700;"></i> Implementação em menos de 24h</li>
-                    <li class="white-text"><i class="fas fa-briefcase mr-2" style="color: #39FF14;"></i> Estratégia Blindada Antiautolote</li>
+                    <li class="white-text"><i class="fas fa-lock mr-2" style="color: #39FF14;"></i> Estratégia Blindada Antiautolote</li>
                     <li class="white-text"><i class="fas fa-chart-line mr-2" style="color: #A855F7;"></i> Escalonamento de Ganhos</li>
                 </ul>
             </div>
