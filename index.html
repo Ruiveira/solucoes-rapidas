@@ -3,7 +3,7 @@
     <html lang="pt-br">
     <head>
         <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Auxílio Doença sem Erros | Nexus Alpha</title>
+        <title>O Segredo do Score 900 | Nexus Alpha</title>
         
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,9 +15,9 @@
             margin: 0; padding: 0;
             background: #020617;
             min-height: 100vh;
+            color: #fff;
         }
         
-        /* Fundo com degradê de sombra sobre a imagem conforme solicitado */
         .bg-hero {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to bottom, rgba(2, 6, 23, 0.7) 0%, rgba(2, 6, 23, 1) 100%), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop');
@@ -27,7 +27,11 @@
         .titulo-master { 
             font-family: 'Montserrat', sans-serif; font-weight: 800;
             letter-spacing: -0.05em; line-height: 0.85;
+            color: #39FF14; /* VERDE NEON */
         }
+
+        .neon-text { color: #39FF14; } /* VERDE NEON */
+        .white-text { color: #ffffff; }
 
         .glass { 
             background: rgba(255, 255, 255, 0.03); 
@@ -36,14 +40,13 @@
         }
 
         .btn-venda { 
-            background: #fff; color: #000; font-family: 'Montserrat', sans-serif;
+            background: #39FF14; color: #000; font-family: 'Montserrat', sans-serif;
             font-weight: 800; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .btn-venda:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(255,255,255,0.2); }
+        .btn-venda:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(57, 255, 20, 0.5); }
         
-        .metodos-pagamento i { font-size: 2.5rem; opacity: 0.8; transition: 0.3s; }
-        .metodos-pagamento i:hover { opacity: 1; color: #818cf8; }
+        .metodos-pagamento i { font-size: 2.5rem; opacity: 0.8; color: #fff; }
     </style>
     
     </head>
@@ -51,9 +54,9 @@
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
             <header class="text-left mb-20">
-                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10">IA Management Active</div>
-                <h1 class="titulo-master text-6xl md:text-[100px] uppercase italic mb-8">#Auxílio Doença sem Erros</h1>
-                <p class="max-w-xl text-slate-300 text-xl leading-relaxed mb-10">Você está a um passo de dominar o <strong>Auxílio Doença sem Erros</strong>. Este protocolo exclusivo foi desenhado para quem busca autonomia e resultados inquestionáveis. Através de uma metodologia didática, transformamos a complexidade em lucro e clareza.</p>
+                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text">IA Power Active</div>
+                <h1 class="titulo-master text-6xl md:text-[100px] uppercase italic mb-8">#O Segredo do Score 900</h1>
+                <p class="max-w-xl text-slate-300 text-xl leading-relaxed mb-10">Você está a um passo de dominar o <strong>O Segredo do Score 900</strong>. Este protocolo exclusivo foi desenhado para quem busca autonomia e resultados inquestionáveis.</p>
                 <a href="detalhes.html" class="btn-venda px-12 py-5 rounded-full uppercase tracking-widest text-sm">Explorar Solução</a>
             </header>
 
