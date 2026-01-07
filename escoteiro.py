@@ -1,18 +1,17 @@
 import os
 
-def criar_estilo(tema_slug):
-    # Imagens contextuais de alta performance (sem rádio)
-    fotos = {
-        "score": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop",
-        "renda": "https://images.unsplash.com/photo-1573161559525-460699b66235?q=80&w=1600&auto=format&fit=crop",
-        "planilha": "https://images.unsplash.com/photo-1600880212340-02344079113f?q=80&w=1600&auto=format&fit=crop",
-        "padrao": "https://images.unsplash.com/photo-15222071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop"
-    }
-    img = fotos.get(tema_slug, fotos["padrao"])
+def criar_estilo():
+    # IMAGEM ÂNCORA: Unificada para todo o ecossistema (Alta Performance)
+    foto_unificada = "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop"
 
     return f"""
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <meta name="description" content="Protocolo Nexus Alpha - Alta Performance e Resultados Reais.">
+    <meta name="keywords" content="renda extra, score alto, finanças, lucratividade, inteligencia artificial">
+    <meta name="robots" content="index, follow">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Inter:wght@300;400;700&display=swap');
         
@@ -24,9 +23,10 @@ def criar_estilo(tema_slug):
             color: #fff;
         }}
         
+        /* IMAGEM QUE PERMANECE EM TODAS AS PÁGINAS */
         .bg-hero {{
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, rgba(2, 6, 23, 1) 100%), url('{img}');
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}');
             background-size: cover; background-position: center; z-index: -1;
         }}
 
@@ -46,10 +46,8 @@ def criar_estilo(tema_slug):
         }}
 
         .btn-venda {{ 
-            background: #ffffff; 
-            color: #000000; 
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800; 
+            background: #ffffff; color: #000000; 
+            font-family: 'Montserrat', sans-serif; font-weight: 800; 
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }}
 
@@ -57,8 +55,8 @@ def criar_estilo(tema_slug):
     </style>
     """
 
-def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, relacionados=[]):
-    copy_convencimento = f"Você está a um passo de dominar o <strong>{tema}</strong>. Este protocolo exclusivo foi desenhado para quem busca autonomia e resultados inquestionáveis."
+def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
+    copy_convencimento = f"O protocolo <strong>{tema}</strong> é a peça que faltava. Desenvolvido por IAs de alta performance para garantir que você não perca tempo e vá direto ao lucro."
 
     conteudo_extra = ""
     if eh_detalhes:
@@ -77,10 +75,7 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
                 <div class="white-text titulo-master text-6xl mb-8 tracking-tighter" style="color: white;">{preco}</div>
                 <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
                 <div class="flex justify-center gap-6 mt-8 opacity-80">
-                    <i class="fab fa-apple-pay text-3xl"></i>
-                    <i class="fab fa-cc-visa text-3xl"></i>
-                    <i class="fab fa-cc-mastercard text-3xl"></i>
-                    <i class="fas fa-barcode text-2xl"></i>
+                    <i class="fab fa-apple-pay text-3xl"></i> <i class="fab fa-cc-visa text-3xl"></i> <i class="fab fa-cc-mastercard text-3xl"></i> <i class="fas fa-barcode text-2xl"></i>
                 </div>
             </div>
         </div>
@@ -92,20 +87,18 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
     <head>
         <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{tema} | Nexus Alpha</title>
-        {criar_estilo(slug)}
+        {criar_estilo()}
     </head>
     <body>
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
             <header class="text-left mb-20">
-                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text">AI Premium Environment</div>
+                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text italic">Nexus AI Bot & Traffic Active</div>
                 <h1 class="titulo-master text-6xl md:text-[100px] uppercase italic mb-8">#{tema}</h1>
                 <p class="max-w-xl text-slate-300 text-xl leading-relaxed mb-10">{copy_convencimento}</p>
                 {f'<a href="detalhes.html" class="btn-venda px-12 py-5 rounded-full uppercase tracking-widest text-sm">Explorar Solução</a>' if not eh_detalhes else ""}
             </header>
-
             {conteudo_extra}
-
             { f'<div class="mt-40 pt-20 border-t border-white/10 text-center"><h3 class="white-text titulo-master text-4xl mb-12 uppercase italic" style="color:white">Produtos Relacionados</h3><div class="grid md:grid-cols-3 gap-8">{" ".join([f"<a href=\'{p['slug']}.html\' class=\'glass p-10 block hover:bg-white/10 transition-all\'><h4 class=\'titulo-master text-xl mb-4 uppercase\' style=\'color: #39FF14\'>{p['nome']}</h4><p class=\'white-text font-bold text-3xl\' style=\'color:white\'>{p['preco']}</p></a>" for p in relacionados])}</div></div>' if eh_detalhes else "" }
         </div>
     </body>
@@ -113,23 +106,23 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
     """
 
 def criar_pagina_vendas(tema, link_stripe):
-    # LINK OFICIAL STRIPE ATUALIZADO
     link_venda = "https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v"
     preco_final = "R$ 19,90"
     
+    # NOME CORRIGIDO: RENDA PASSIVA -> RENDA EXTRA
     relacionados = [
         {"nome": "Score 900 Turbo", "preco": preco_final, "slug": "score", "link": link_venda},
-        {"nome": "Renda Passiva", "preco": preco_final, "slug": "renda", "link": link_venda},
+        {"nome": "Renda Extra", "preco": preco_final, "slug": "renda", "link": link_venda},
         {"nome": "Planilha Lucros", "preco": preco_final, "slug": "planilha", "link": link_venda}
     ]
 
     with open("index.html", "w", encoding="utf-8") as f:
-        f.write(gerar_layout_pagina(tema, preco_final, "detalhes.html", slug="padrao"))
+        f.write(gerar_layout_pagina(tema, preco_final, "detalhes.html"))
     
     with open("detalhes.html", "w", encoding="utf-8") as f:
-        f.write(gerar_layout_pagina(tema, preco_final, link_venda, slug="padrao", eh_detalhes=True, relacionados=relacionados))
+        f.write(gerar_layout_pagina(tema, preco_final, link_venda, eh_detalhes=True, relacionados=relacionados))
 
     for p in relacionados:
         with open(f"{p['slug']}.html", "w", encoding="utf-8") as f:
             outros = [i for i in relacionados if i['slug'] != p['slug']]
-            f.write(gerar_layout_pagina(p['nome'], p['preco'], p['link'], slug=p['slug'], eh_detalhes=True, relacionados=outros))
+            f.write(gerar_layout_pagina(p['nome'], p['preco'], p['link'], eh_detalhes=True, relacionados=outros))
