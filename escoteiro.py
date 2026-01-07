@@ -1,15 +1,15 @@
 import os
 
 def criar_estilo():
-    # IMAGEM ÂNCORA: Unificada para todo o ecossistema (Alta Performance)
+    # IMAGEM FIXA: Alta Performance para todo o site
     foto_unificada = "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop"
 
     return f"""
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <meta name="description" content="Protocolo Nexus Alpha - Alta Performance e Resultados Reais.">
-    <meta name="keywords" content="renda extra, score alto, finanças, lucratividade, inteligencia artificial">
+    <meta name="description" content="Protocolo Nexus Alpha - Resultados Reais.">
+    <meta name="keywords" content="renda extra, score alto, finanças">
     <meta name="robots" content="index, follow">
 
     <style>
@@ -23,7 +23,6 @@ def criar_estilo():
             color: #fff;
         }}
         
-        /* IMAGEM QUE PERMANECE EM TODAS AS PÁGINAS */
         .bg-hero {{
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}');
@@ -56,7 +55,28 @@ def criar_estilo():
     """
 
 def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
-    copy_convencimento = f"O protocolo <strong>{tema}</strong> é a peça que faltava. Desenvolvido por IAs de alta performance para garantir que você não perca tempo e vá direto ao lucro."
+    copy_convencimento = f"O protocolo <strong>{tema}</strong> é a peça que faltava. Desenvolvido por IAs de alta performance."
+
+    html_relacionados = ""
+    if relacionados:
+        for p in relacionados:
+            html_relacionados += f'''
+            <a href="{p['slug']}.html" class="glass p-10 block hover:bg-white/10 transition-all">
+                <h4 class="titulo-master text-xl mb-4 uppercase" style="color: #39FF14">{p['nome']}</h4>
+                <p class="white-text font-bold text-3xl" style="color:white">{p['preco']}</p>
+            </a>
+            '''
+
+    secao_relacionados = ""
+    if eh_detalhes:
+        secao_relacionados = f"""
+        <div class="mt-40 pt-20 border-t border-white/10 text-center">
+            <h3 class="white-text titulo-master text-4xl mb-12 uppercase italic">Produtos Relacionados</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                {html_relacionados}
+            </div>
+        </div>
+        """
 
     conteudo_extra = ""
     if eh_detalhes:
@@ -72,11 +92,8 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
             </div>
             <div class="glass p-10 text-center flex flex-col justify-center">
                 <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2 italic">Oferta Vitalícia</span>
-                <div class="white-text titulo-master text-6xl mb-8 tracking-tighter" style="color: white;">{preco}</div>
+                <div class="white-text titulo-master text-6xl mb-8 tracking-tighter">{preco}</div>
                 <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
-                <div class="flex justify-center gap-6 mt-8 opacity-80">
-                    <i class="fab fa-apple-pay text-3xl"></i> <i class="fab fa-cc-visa text-3xl"></i> <i class="fab fa-cc-mastercard text-3xl"></i> <i class="fas fa-barcode text-2xl"></i>
-                </div>
             </div>
         </div>
         """
@@ -93,13 +110,13 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
             <header class="text-left mb-20">
-                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text italic">Nexus AI Bot & Traffic Active</div>
+                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text italic">Nexus AI Bot Active</div>
                 <h1 class="titulo-master text-6xl md:text-[100px] uppercase italic mb-8">#{tema}</h1>
                 <p class="max-w-xl text-slate-300 text-xl leading-relaxed mb-10">{copy_convencimento}</p>
                 {f'<a href="detalhes.html" class="btn-venda px-12 py-5 rounded-full uppercase tracking-widest text-sm">Explorar Solução</a>' if not eh_detalhes else ""}
             </header>
             {conteudo_extra}
-            { f'<div class="mt-40 pt-20 border-t border-white/10 text-center"><h3 class="white-text titulo-master text-4xl mb-12 uppercase italic" style="color:white">Produtos Relacionados</h3><div class="grid md:grid-cols-3 gap-8">{" ".join([f"<a href=\'{p['slug']}.html\' class=\'glass p-10 block hover:bg-white/10 transition-all\'><h4 class=\'titulo-master text-xl mb-4 uppercase\' style=\'color: #39FF14\'>{p['nome']}</h4><p class=\'white-text font-bold text-3xl\' style=\'color:white\'>{p['preco']}</p></a>" for p in relacionados])}</div></div>' if eh_detalhes else "" }
+            {secao_relacionados}
         </div>
     </body>
     </html>
@@ -109,7 +126,6 @@ def criar_pagina_vendas(tema, link_stripe):
     link_venda = "https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v"
     preco_final = "R$ 19,90"
     
-    # NOME CORRIGIDO: RENDA PASSIVA -> RENDA EXTRA
     relacionados = [
         {"nome": "Score 900 Turbo", "preco": preco_final, "slug": "score", "link": link_venda},
         {"nome": "Renda Extra", "preco": preco_final, "slug": "renda", "link": link_venda},
