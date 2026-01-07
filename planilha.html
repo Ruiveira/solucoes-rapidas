@@ -3,69 +3,83 @@
     <html lang="pt-br">
     <head>
         <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Planilha de Lucros | Oficial</title>
+        <title>Planilha de Lucros | Inteligência e Vantagem</title>
         
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; scroll-behavior: smooth; }
         .font-luxury { font-family: 'Playfair Display', serif; }
         .gradient-text { 
-            background: linear-gradient(to right, #ffffff, #818cf8); 
+            background: linear-gradient(to right, #ffffff, #a5b4fc); 
             background-clip: text; -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; color: transparent;
         }
-        .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); }
-        .btn-action { background: #ffffff; color: #000; transition: all 0.4s ease; }
-        .btn-action:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4); }
+        .glass { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); }
+        .btn-action { background: #ffffff; color: #000; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .btn-action:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3); }
+        .card-relacionado { transition: all 0.3s ease; }
+        .card-relacionado:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(99, 102, 241, 0.5); }
     </style>
     
     </head>
     <body class="antialiased">
-        <div class="max-w-5xl mx-auto px-6 py-20 text-center">
-            <span class="text-indigo-500 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">Acesso Privilegiado</span>
-            <h1 class="text-5xl md:text-7xl font-luxury italic gradient-text uppercase mb-10 leading-none">Planilha de Lucros</h1>
+        <div class="max-w-6xl mx-auto px-6 py-20 text-center">
+            <span class="text-indigo-500 font-bold tracking-[0.5em] text-xs uppercase mb-6 block">Documento Oficial & Exclusivo</span>
+            <h1 class="text-5xl md:text-8xl font-luxury italic gradient-text uppercase mb-12 leading-none tracking-tighter">Planilha de Lucros</h1>
             
-            <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-12 leading-relaxed">
-                Descubra os fundamentos que transcendem o senso comum e posicione-se no topo com o protocolo <span class="text-white italic">Planilha de Lucros</span>.
-            </p>
-
-            <div class="glass p-12 rounded-[3rem] max-w-lg mx-auto mb-20">
-                <p class="text-indigo-400 text-xs font-bold uppercase mb-2">Valor de Investimento</p>
-                <div class="text-6xl font-luxury italic mb-8">R$ 10,00</div>
-                <a href="https://buy.stripe.com/5kQbIT76yf2beWT1np4c80k" class="btn-action block w-full py-6 rounded-2xl font-black text-xl uppercase tracking-tighter">
-                    ADQUIRIR AGORA
-                </a>
+            <div class="max-w-3xl mx-auto text-slate-400 text-xl mb-16 leading-relaxed italic">
                 
-    <div class="flex justify-center gap-6 mt-8 opacity-80">
-        <svg class="h-6 w-auto" viewBox="0 0 100 40" fill="white"><path d="M35 15h-3v10h3v-10zM45 15h-5v10h5v-2h-3v-2h3v-2h-3v-2h3v-2z"/></svg> <svg class="h-6 w-auto" viewBox="0 0 100 40" fill="white"><path d="M10 10h80v20h-80z"/></svg> <svg class="h-6 w-auto" viewBox="0 0 100 40" fill="white"><rect x="10" y="5" width="2" height="30"/><rect x="15" y="5" width="4" height="30"/><rect x="22" y="5" width="2" height="30"/></svg> </div>
+    O método <strong>Planilha de Lucros</strong> foi desenvolvido para quem busca clareza absoluta e resultados imediatos. 
+    Diferente de tudo o que você já viu, aqui nós removemos a complexidade e entregamos um mapa mental e prático 
+    capaz de transformar Planilha de Lucros em uma vantagem competitiva real na sua vida. Imagine dominar cada detalhe 
+    com a confiança de um especialista, eliminando erros comuns e acelerando seu progresso em tempo recorde.
     
             </div>
 
+            <div class="glass p-12 md:p-20 rounded-[4rem] max-w-2xl mx-auto mb-20 shadow-2xl shadow-indigo-500/10">
+                <p class="text-indigo-400 text-sm font-bold uppercase tracking-[0.2em] mb-4">Investimento Único para Acesso Vitalício</p>
+                <div class="text-7xl font-luxury italic mb-10 tracking-tighter">R$ 10,00</div>
+                <a href="https://buy.stripe.com/28E4grfD45rB4if2rt4c80l" class="btn-action block w-full py-8 rounded-3xl font-black text-2xl uppercase tracking-widest shadow-xl">
+                    OBTER ACESSO IMEDIATO
+                </a>
+                
+    <div class="flex justify-center items-center gap-8 mt-10 text-white/60 text-2xl">
+        <i class="fab fa-apple-pay hover:text-white transition-colors" title="Apple Pay"></i>
+        <i class="fab fa-cc-visa hover:text-white transition-colors" title="Cartão de Crédito"></i>
+        <i class="fab fa-cc-mastercard hover:text-white transition-colors" title="Cartão de Crédito"></i>
+        <i class="fas fa-barcode hover:text-white transition-colors text-xl" title="Boleto"></i>
+    </div>
+    
+                <p class="mt-8 text-xs text-slate-500 uppercase font-bold tracking-widest">Pagamento Criptografado e Seguro</p>
+            </div>
+
             
-        <div class="mt-20 grid md:grid-cols-2 gap-16 text-left border-t border-white/10 pt-16">
+        <div class="mt-24 grid md:grid-cols-2 gap-16 text-left border-t border-white/10 pt-16">
             <div>
-                <h3 class="font-luxury italic text-3xl mb-8 uppercase tracking-tighter">O que você vai dominar</h3>
-                <div class="space-y-6 text-slate-400">
-                    <p>• <strong class="text-white">Módulo I:</strong> A Anatomia da Maestria em Planilha de Lucros.</p>
-                    <p>• <strong class="text-white">Módulo II:</strong> Protocolos de Execução Rápida e Escala.</p>
-                    <p>• <strong class="text-white">Módulo III:</strong> Blindagem de Resultados e Gestão Avançada.</p>
+                <h3 class="font-luxury italic text-4xl mb-8 gradient-text uppercase">O Que Você Vai Descobrir</h3>
+                <div class="space-y-8 text-slate-300 text-lg leading-relaxed">
+                    <p><i class="fas fa-check-circle text-indigo-500 mr-3"></i> <strong>A Estrutura Mestra:</strong> Entenda os pilares fundamentais que sustentam o sucesso em Planilha de Lucros.</p>
+                    <p><i class="fas fa-check-circle text-indigo-500 mr-3"></i> <strong>Aceleração de Resultados:</strong> Técnicas validadas para reduzir meses de aprendizado em poucos dias.</p>
+                    <p><i class="fas fa-check-circle text-indigo-500 mr-3"></i> <strong>Blindagem Estratégica:</strong> Como manter seus ganhos e evoluir de forma consistente e segura.</p>
                 </div>
             </div>
-            <div class="glass p-8 rounded-3xl">
-                <h4 class="font-bold text-indigo-400 uppercase text-xs tracking-widest mb-4">Incluso no Acesso</h4>
-                <ul class="text-sm space-y-3">
-                    <li>✅ Videoaulas em Alta Definição</li>
-                    <li>✅ Material de Apoio (PDF Executivo)</li>
-                    <li>✅ Planilhas de Implementação</li>
-                    <li>✅ Certificado de Conclusão Oficial</li>
+            <div class="glass p-10 rounded-[3rem] border-indigo-500/20">
+                <h4 class="font-black text-indigo-400 uppercase text-xs tracking-[0.3em] mb-6">Conteúdo Premium Incluso</h4>
+                <ul class="space-y-4 text-slate-300">
+                    <li class="flex items-center gap-3"><i class="fas fa-video text-indigo-500"></i> Videoaulas Didáticas Passo a Passo</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-file-pdf text-indigo-500"></i> Guia Prático de Implementação</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-chart-line text-indigo-500"></i> Planilha de Acompanhamento Real</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-certificate text-indigo-500"></i> Certificado de Maestria Nexus-Alpha</li>
                 </ul>
             </div>
         </div>
         
 
-            <div class="mt-32 pt-16 border-t border-white/10"><h3 class="font-luxury italic text-2xl mb-12">Expandir Inteligência</h3><div class="grid md:grid-cols-3 gap-6"></div></div>
+            <div class="mt-40 pt-20 border-t border-white/10"><h3 class="font-luxury italic text-3xl mb-12 uppercase tracking-widest">Ecossistema de Soluções</h3><div class="grid md:grid-cols-3 gap-8"><a href='score.html' class='card-relacionado glass p-10 rounded-[3rem] block'><h4 class='font-luxury italic text-xl mb-4 uppercase'>O Segredo do Score 900</h4><p class='text-indigo-400 font-black text-2xl mb-2'>R$ 10,00</p><span class='text-[10px] uppercase font-bold text-slate-500 tracking-widest'>Explorar Conteúdo →</span></a> <a href='renda.html' class='card-relacionado glass p-10 rounded-[3rem] block'><h4 class='font-luxury italic text-xl mb-4 uppercase'>Renda Extra Online</h4><p class='text-indigo-400 font-black text-2xl mb-2'>R$ 10,00</p><span class='text-[10px] uppercase font-bold text-slate-500 tracking-widest'>Explorar Conteúdo →</span></a></div></div>
         </div>
+        <footer class="py-20 text-slate-600 text-[10px] uppercase tracking-[0.4em]">Nexus-Alpha &copy; 2026 - Todos os Direitos Reservados</footer>
     </body>
     </html>
     
