@@ -1,12 +1,12 @@
 import os
 
 def criar_estilo(tema_slug):
-    # Curadoria de Imagens: Homem e Mulher em contextos de ALTA PERFORMANCE (sem rádio)
+    # Imagens contextuais de alta performance (sem rádio)
     fotos = {
-        "score": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop", # Foco em confiança e análise
-        "renda": "https://images.unsplash.com/photo-1573161559525-460699b66235?q=80&w=1600&auto=format&fit=crop", # Foco em lucros e estratégia
-        "planilha": "https://images.unsplash.com/photo-1600880212340-02344079113f?q=80&w=1600&auto=format&fit=crop", # Foco em dados e gestão luxo
-        "padrao": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop"  # Consultoria moderna
+        "score": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop",
+        "renda": "https://images.unsplash.com/photo-1573161559525-460699b66235?q=80&w=1600&auto=format&fit=crop",
+        "planilha": "https://images.unsplash.com/photo-1600880212340-02344079113f?q=80&w=1600&auto=format&fit=crop",
+        "padrao": "https://images.unsplash.com/photo-15222071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop"
     }
     img = fotos.get(tema_slug, fotos["padrao"])
 
@@ -33,7 +33,7 @@ def criar_estilo(tema_slug):
         .titulo-master {{ 
             font-family: 'Montserrat', sans-serif; font-weight: 800;
             letter-spacing: -0.05em; line-height: 0.85;
-            color: #39FF14; /* VERDE NEON */
+            color: #39FF14;
         }}
 
         .neon-text {{ color: #39FF14; }}
@@ -106,25 +106,28 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
 
             {conteudo_extra}
 
-            { f'<div class="mt-40 pt-20 border-t border-white/10 text-center"><h3 class="white-text titulo-master text-4xl mb-12 uppercase italic" style="color:white">Produtos Relacionados</h3><div class="grid md:grid-cols-3 gap-8">{" ".join([f"<a href=\'{p['slug']}.html\' class=\'glass p-10 block hover:bg-white/10 transition-all\'><h4 class=\'titulo-master text-xl mb-4 uppercase\'>{p['nome']}</h4><p class=\'white-text font-bold text-3xl\' style=\'color:white\'>{p['preco']}</p></a>" for p in relacionados])}</div></div>' if eh_detalhes else "" }
+            { f'<div class="mt-40 pt-20 border-t border-white/10 text-center"><h3 class="white-text titulo-master text-4xl mb-12 uppercase italic" style="color:white">Produtos Relacionados</h3><div class="grid md:grid-cols-3 gap-8">{" ".join([f"<a href=\'{p['slug']}.html\' class=\'glass p-10 block hover:bg-white/10 transition-all\'><h4 class=\'titulo-master text-xl mb-4 uppercase\' style=\'color: #39FF14\'>{p['nome']}</h4><p class=\'white-text font-bold text-3xl\' style=\'color:white\'>{p['preco']}</p></a>" for p in relacionados])}</div></div>' if eh_detalhes else "" }
         </div>
     </body>
     </html>
     """
 
 def criar_pagina_vendas(tema, link_stripe):
+    # LINK OFICIAL STRIPE ATUALIZADO
+    link_venda = "https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v"
     preco_final = "R$ 19,90"
+    
     relacionados = [
-        {"nome": "Score 900 Turbo", "preco": preco_final, "slug": "score", "link": link_stripe},
-        {"nome": "Renda Passiva", "preco": preco_final, "slug": "renda", "link": link_stripe},
-        {"nome": "Planilha Lucros", "preco": preco_final, "slug": "planilha", "link": link_stripe}
+        {"nome": "Score 900 Turbo", "preco": preco_final, "slug": "score", "link": link_venda},
+        {"nome": "Renda Passiva", "preco": preco_final, "slug": "renda", "link": link_venda},
+        {"nome": "Planilha Lucros", "preco": preco_final, "slug": "planilha", "link": link_venda}
     ]
 
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(gerar_layout_pagina(tema, preco_final, "detalhes.html", slug="padrao"))
     
     with open("detalhes.html", "w", encoding="utf-8") as f:
-        f.write(gerar_layout_pagina(tema, preco_final, link_stripe, slug="padrao", eh_detalhes=True, relacionados=relacionados))
+        f.write(gerar_layout_pagina(tema, preco_final, link_venda, slug="padrao", eh_detalhes=True, relacionados=relacionados))
 
     for p in relacionados:
         with open(f"{p['slug']}.html", "w", encoding="utf-8") as f:
