@@ -49,3 +49,9 @@ Traceback (most recent call last):
   File "/Users/Alan/nexus_alpha/arquiteto.py", line 1, in <module>
     import stripe
 ModuleNotFoundError: No module named 'stripe'
+Traceback (most recent call last):
+  File "integrador.py", line 1, in <module>
+    import random, arquiteto, escoteiro, os, datetime
+  File "/Users/Alan/nexus_alpha/arquiteto.py", line 1, in <module>
+    import stripe
+ModuleNotFoundError: No module named 'stripe'
