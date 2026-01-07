@@ -1,25 +1,27 @@
-import random, arquiteto, escoteiro, os, datetime
-
-# Temas com gatilhos de "Desejo de Alívio"
-temas_magneticos = [
-    "Recuperação de Impostos Retidos", "O Segredo do Score 900",
-    "Protocolo: Sair das Dívidas", "Manual da Renda Extra Online",
-    "Estratégia: Juros Abusivos Nunca Mais", "Investimento Blindado",
-    "Como Baixar Parcelas do Carro", "Auxílio Doença sem Erros"
-]
+import escoteiro
+import sitemap_gen
+import subprocess
+import time
 
 def rodar_sistema():
-    print(f"--- NEXUS-ALPHA ATUALIZANDO ({datetime.datetime.now().strftime('%H:%M')}) ---")
-    tema = random.choice(temas_magneticos)
-    link = arquiteto.criar_produto_e_link(tema)
-    escoteiro.criar_pagina_vendas(tema, link)
+    print(f"--- NEXUS-ALPHA ATUALIZANDO ({time.strftime('%H:%M')}) ---")
     
-    # Atualiza Sitemap para SEO Orgânico
-    with open("sitemap.xml", "w") as f:
-        f.write(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://ruiveira.github.io/solucoes-rapidas/</loc><changefreq>hourly</changefreq></url></urlset>')
-
-    os.system("git add . && git commit -m 'Nexus-Alpha: Psicologia de Vendas Aplicada' && git push origin main")
-    print(f"--- SUCESSO: '{tema}' está vendendo agora ---")
+    # 1. Gera as páginas com o design de Alta Performance
+    tema_principal = "Score 900 Turbo"
+    link_stripe = "https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v"
+    escoteiro.criar_pagina_vendas(tema_principal, link_stripe)
+    
+    # 2. Gera o Sitemap para Tráfego Orgânico Grátis
+    sitemap_gen.gerar_sitemap()
+    
+    # 3. Publica tudo automaticamente no GitHub
+    try:
+        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run(["git", "commit", "-m", "Nexus AI: SEO & Design Update"], check=True)
+        subprocess.run(["git", "push"], check=True)
+        print("--- NEXUS STATUS: Tudo Online e Indexado ---")
+    except Exception as e:
+        print(f"Erro na publicação: {e}")
 
 if __name__ == "__main__":
     rodar_sistema()
