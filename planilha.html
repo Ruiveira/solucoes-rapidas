@@ -20,7 +20,7 @@
         
         .bg-hero {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.7) 0%, rgba(2, 6, 23, 1) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop');
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.75) 0%, rgba(2, 6, 23, 1) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop');
             background-size: cover; background-position: center; z-index: -1;
         }
 
@@ -30,7 +30,7 @@
             color: #39FF14; /* VERDE NEON */
         }
 
-        .neon-text { color: #39FF14; } /* VERDE NEON */
+        .neon-text { color: #39FF14; }
         .white-text { color: #ffffff; }
 
         .glass { 
@@ -40,13 +40,14 @@
         }
 
         .btn-venda { 
-            background: #39FF14; color: #000; font-family: 'Montserrat', sans-serif;
-            font-weight: 800; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #ffffff; /* BOTÃO BRANCO */
+            color: #000000; /* TEXTO PRETO */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800; 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .btn-venda:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(57, 255, 20, 0.5); }
-        
-        .metodos-pagamento i { font-size: 2.5rem; opacity: 0.8; color: #fff; }
+        .btn-venda:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
     </style>
     
     </head>
@@ -54,7 +55,7 @@
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
             <header class="text-left mb-20">
-                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text">IA Power Active</div>
+                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text">AI Strategy Mode</div>
                 <h1 class="titulo-master text-6xl md:text-[100px] uppercase italic mb-8">#Planilha Lucros</h1>
                 <p class="max-w-xl text-slate-300 text-xl leading-relaxed mb-10">Você está a um passo de dominar o <strong>Planilha Lucros</strong>. Este protocolo exclusivo foi desenhado para quem busca autonomia e resultados inquestionáveis.</p>
                 
@@ -64,27 +65,27 @@
         <div class="grid md:grid-cols-2 gap-8 mt-20 text-left border-t border-white/10 pt-16">
             <div class="glass p-10">
                 <h3 class="titulo-master text-2xl mb-6 uppercase italic">#Plano de Ação</h3>
-                <ul class="space-y-4 neon-text">
-                    <li><i class="fas fa-bolt mr-2"></i> Implementação em menos de 24h</li>
-                    <li><i class="fas fa-lock mr-2"></i> Estratégia Blindada Antiautolote</li>
-                    <li><i class="fas fa-chart-line mr-2"></i> Escalonamento de Ganhos</li>
+                <ul class="space-y-4">
+                    <li class="white-text"><i class="fas fa-bolt mr-2" style="color: #FFD700;"></i> Implementação em menos de 24h</li>
+                    <li class="white-text"><i class="fas fa-briefcase mr-2" style="color: #39FF14;"></i> Estratégia Blindada Antiautolote</li>
+                    <li class="white-text"><i class="fas fa-chart-line mr-2" style="color: #A855F7;"></i> Escalonamento de Ganhos</li>
                 </ul>
             </div>
             <div class="glass p-10 text-center flex flex-col justify-center">
-                <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2">Oferta Vitalícia</span>
-                <div class="titulo-master text-6xl mb-8 tracking-tighter">R$ 19,90</div>
-                <a href="https://buy.stripe.com/7sYfZ9gH81bl9Czeab4c80r" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
-                <div class="metodos-pagamento flex justify-center gap-6 mt-8">
-                    <i class="fab fa-apple-pay"></i>
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fas fa-barcode"></i>
+                <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2 italic">Oferta Vitalícia</span>
+                <div class="white-text titulo-master text-6xl mb-8 tracking-tighter" style="color: white;">R$ 19,90</div>
+                <a href="https://buy.stripe.com/bJe00b1MedY73eb4zB4c80s" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
+                <div class="flex justify-center gap-6 mt-8 opacity-70">
+                    <i class="fab fa-apple-pay text-3xl"></i>
+                    <i class="fab fa-cc-visa text-3xl"></i>
+                    <i class="fab fa-cc-mastercard text-3xl"></i>
+                    <i class="fas fa-barcode text-2xl"></i>
                 </div>
             </div>
         </div>
         
 
-            <div class="mt-40 pt-20 border-t border-white/10 text-center"><h3 class="white-text titulo-master text-4xl mb-12 uppercase italic" style="color:white">Produtos Relacionados</h3><div class="grid md:grid-cols-3 gap-8"><a href='score.html' class='glass p-10 block hover:bg-white/10 transition-all'><h4 class='titulo-master text-xl mb-4 uppercase'>Score 900 Turbo</h4><p class='neon-text font-bold text-3xl'>R$ 19,90</p></a> <a href='renda.html' class='glass p-10 block hover:bg-white/10 transition-all'><h4 class='titulo-master text-xl mb-4 uppercase'>Renda Passiva</h4><p class='neon-text font-bold text-3xl'>R$ 19,90</p></a></div></div>
+            <div class="mt-40 pt-20 border-t border-white/10 text-center"><h3 class="white-text titulo-master text-4xl mb-12 uppercase italic" style="color:white">Produtos Relacionados</h3><div class="grid md:grid-cols-3 gap-8"><a href='score.html' class='glass p-10 block hover:bg-white/10 transition-all'><h4 class='titulo-master text-xl mb-4 uppercase'>Score 900 Turbo</h4><p class='white-text font-bold text-3xl' style='color:white'>R$ 19,90</p></a> <a href='renda.html' class='glass p-10 block hover:bg-white/10 transition-all'><h4 class='titulo-master text-xl mb-4 uppercase'>Renda Passiva</h4><p class='white-text font-bold text-3xl' style='color:white'>R$ 19,90</p></a></div></div>
         </div>
     </body>
     </html>

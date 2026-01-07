@@ -1,7 +1,7 @@
 import os
 
 def criar_estilo(tema_slug):
-    # Seleção inteligente de imagens (Homem/Mulher conversando)
+    # Imagens contextuais de interação humana
     fotos = {
         "score": "https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?q=80&w=1600&auto=format&fit=crop",
         "renda": "https://images.unsplash.com/photo-1591115765373-520b7a217294?q=80&w=1600&auto=format&fit=crop",
@@ -26,7 +26,7 @@ def criar_estilo(tema_slug):
         
         .bg-hero {{
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.7) 0%, rgba(2, 6, 23, 1) 100%), url('{img}');
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.75) 0%, rgba(2, 6, 23, 1) 100%), url('{img}');
             background-size: cover; background-position: center; z-index: -1;
         }}
 
@@ -36,7 +36,7 @@ def criar_estilo(tema_slug):
             color: #39FF14; /* VERDE NEON */
         }}
 
-        .neon-text {{ color: #39FF14; }} /* VERDE NEON */
+        .neon-text {{ color: #39FF14; }}
         .white-text {{ color: #ffffff; }}
 
         .glass {{ 
@@ -46,13 +46,14 @@ def criar_estilo(tema_slug):
         }}
 
         .btn-venda {{ 
-            background: #39FF14; color: #000; font-family: 'Montserrat', sans-serif;
-            font-weight: 800; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #ffffff; /* BOTÃO BRANCO */
+            color: #000000; /* TEXTO PRETO */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800; 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }}
 
-        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 30px rgba(57, 255, 20, 0.5); }}
-        
-        .metodos-pagamento i {{ font-size: 2.5rem; opacity: 0.8; color: #fff; }}
+        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }}
     </style>
     """
 
@@ -65,21 +66,21 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
         <div class="grid md:grid-cols-2 gap-8 mt-20 text-left border-t border-white/10 pt-16">
             <div class="glass p-10">
                 <h3 class="titulo-master text-2xl mb-6 uppercase italic">#Plano de Ação</h3>
-                <ul class="space-y-4 neon-text">
-                    <li><i class="fas fa-bolt mr-2"></i> Implementação em menos de 24h</li>
-                    <li><i class="fas fa-lock mr-2"></i> Estratégia Blindada Antiautolote</li>
-                    <li><i class="fas fa-chart-line mr-2"></i> Escalonamento de Ganhos</li>
+                <ul class="space-y-4">
+                    <li class="white-text"><i class="fas fa-bolt mr-2" style="color: #FFD700;"></i> Implementação em menos de 24h</li>
+                    <li class="white-text"><i class="fas fa-briefcase mr-2" style="color: #39FF14;"></i> Estratégia Blindada Antiautolote</li>
+                    <li class="white-text"><i class="fas fa-chart-line mr-2" style="color: #A855F7;"></i> Escalonamento de Ganhos</li>
                 </ul>
             </div>
             <div class="glass p-10 text-center flex flex-col justify-center">
-                <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2">Oferta Vitalícia</span>
-                <div class="titulo-master text-6xl mb-8 tracking-tighter">{preco}</div>
+                <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2 italic">Oferta Vitalícia</span>
+                <div class="white-text titulo-master text-6xl mb-8 tracking-tighter" style="color: white;">{preco}</div>
                 <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
-                <div class="metodos-pagamento flex justify-center gap-6 mt-8">
-                    <i class="fab fa-apple-pay"></i>
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fas fa-barcode"></i>
+                <div class="flex justify-center gap-6 mt-8 opacity-70">
+                    <i class="fab fa-apple-pay text-3xl"></i>
+                    <i class="fab fa-cc-visa text-3xl"></i>
+                    <i class="fab fa-cc-mastercard text-3xl"></i>
+                    <i class="fas fa-barcode text-2xl"></i>
                 </div>
             </div>
         </div>
@@ -97,7 +98,7 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
             <header class="text-left mb-20">
-                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text">IA Power Active</div>
+                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text">AI Strategy Mode</div>
                 <h1 class="titulo-master text-6xl md:text-[100px] uppercase italic mb-8">#{tema}</h1>
                 <p class="max-w-xl text-slate-300 text-xl leading-relaxed mb-10">{copy_convencimento}</p>
                 {f'<a href="detalhes.html" class="btn-venda px-12 py-5 rounded-full uppercase tracking-widest text-sm">Explorar Solução</a>' if not eh_detalhes else ""}
@@ -105,7 +106,7 @@ def gerar_layout_pagina(tema, preco, link, slug="padrao", eh_detalhes=False, rel
 
             {conteudo_extra}
 
-            { f'<div class="mt-40 pt-20 border-t border-white/10 text-center"><h3 class="white-text titulo-master text-4xl mb-12 uppercase italic" style="color:white">Produtos Relacionados</h3><div class="grid md:grid-cols-3 gap-8">{" ".join([f"<a href=\'{p['slug']}.html\' class=\'glass p-10 block hover:bg-white/10 transition-all\'><h4 class=\'titulo-master text-xl mb-4 uppercase\'>{p['nome']}</h4><p class=\'neon-text font-bold text-3xl\'>{p['preco']}</p></a>" for p in relacionados])}</div></div>' if eh_detalhes else "" }
+            { f'<div class="mt-40 pt-20 border-t border-white/10 text-center"><h3 class="white-text titulo-master text-4xl mb-12 uppercase italic" style="color:white">Produtos Relacionados</h3><div class="grid md:grid-cols-3 gap-8">{" ".join([f"<a href=\'{p['slug']}.html\' class=\'glass p-10 block hover:bg-white/10 transition-all\'><h4 class=\'titulo-master text-xl mb-4 uppercase\'>{p['nome']}</h4><p class=\'white-text font-bold text-3xl\' style=\'color:white\'>{p['preco']}</p></a>" for p in relacionados])}</div></div>' if eh_detalhes else "" }
         </div>
     </body>
     </html>
