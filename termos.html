@@ -8,26 +8,14 @@
         .bg-hero { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9) 0%, rgba(2, 6, 23, 1) 100%), url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop'); background-size: cover; background-position: center; z-index: -1; }
         .titulo-master { font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: #39FF14; text-transform: uppercase; font-style: italic; }
         .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border-radius: 2rem; }
-        
-        /* BOTÃO PROPORCIONAL E ELITE */
-        .btn-venda { background: #39FF14 !important; color: #000 !important; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: inline-block; width: 100%; max-width: 450px; text-align: center; border-radius: 1rem; text-decoration: none; border: none; cursor: pointer; padding: 1.25rem 0; font-size: 1.5rem; }
-        .btn-venda:hover { transform: scale(1.02); box-shadow: 0 0 40px rgba(57, 255, 20, 0.6); }
-        
-        /* VALOR AJUSTADO: R$ AO LADO DO NÚMERO */
-        .valor-branco { color: #FFFFFF !important; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 4rem; display: flex; align-items: center; justify-content: center; gap: 10px; line-height: 1; }
-        .valor-branco span { font-size: 1.8rem; opacity: 0.9; }
-
-        @media (max-width: 768px) {
-            .valor-branco { font-size: 3rem; }
-            .valor-branco span { font-size: 1.4rem; }
-            .btn-venda { font-size: 1.2rem; padding: 1rem 0; }
-        }
-        
+        .btn-venda { background: #39FF14 !important; color: #000 !important; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; border-radius: 1rem; text-decoration: none; border: none; cursor: pointer; }
+        .btn-venda:hover { transform: scale(1.05); box-shadow: 0 0 60px rgba(57, 255, 20, 0.9); }
+        .valor-branco { color: #FFFFFF !important; font-family: 'Montserrat', sans-serif; font-weight: 800; }
         .img-premium { width: 100%; border-radius: 1.5rem; border: 2px solid #39FF14; box-shadow: 0 0 40px rgba(57, 255, 20, 0.3); }
     </style>
     </head>
-    <body><div class="bg-hero"></div><div class="max-w-5xl mx-auto px-6 py-12">
-    <header class="flex justify-between items-center mb-12"><a href="index.html" class="text-xl font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-[9px] opacity-40 font-bold italic text-white tracking-widest">FULL SYNC 24/7</div></header>
-    <div class="glass p-12"><h2>Termos</h2><p>Contrato de uso 2026.</p></div>
-    <footer class="mt-24 py-8 border-t border-white/10 text-[9px] opacity-40 text-center uppercase font-bold">
+    <body><div class="bg-hero"></div><div class="max-w-6xl mx-auto px-6 py-20">
+    <header class="flex justify-between items-center mb-16"><a href="index.html" class="text-2xl font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-[10px] opacity-40 font-bold italic text-white uppercase tracking-tighter">FULL SYNC 24/7 ACTIVE</div></header>
+    <div class="glass p-12"><h2>Termos de Uso</h2><p>Contrato de uso 2026.</p></div>
+    <footer class="mt-40 py-10 border-t border-white/10 text-[10px] opacity-40 text-center uppercase tracking-widest font-bold">
     <p>© 2026 Nexus Alpha System - Brasil</p></footer></div></body></html>
