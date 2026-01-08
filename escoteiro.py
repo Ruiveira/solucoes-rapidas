@@ -11,9 +11,14 @@ def criar_estilo():
         .bg-hero {{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}'); background-size: cover; background-position: center; z-index: -1; }}
         .titulo-master {{ font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: #39FF14; text-transform: uppercase; font-style: italic; }}
         .glass {{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border-radius: 2rem; }}
+        
+        /* BOTÃO VERDE NEON */
         .btn-venda {{ background: #39FF14 !important; color: #000 !important; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; border-radius: 1rem; text-decoration: none; border: none; cursor: pointer; }}
         .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 50px rgba(57, 255, 20, 0.9); }}
+        
+        /* VALOR EM BRANCO */
         .valor-branco {{ color: #FFFFFF !important; font-family: 'Montserrat', sans-serif; font-weight: 800; }}
+        
         .img-premium {{ width: 100%; border-radius: 1.5rem; border: 1px solid rgba(57, 255, 20, 0.3); box-shadow: 0 0 30px rgba(57, 255, 20, 0.2); }}
     </style>
     """
@@ -50,7 +55,7 @@ def obter_copy_vendas(tema):
             "headline": "IA INVESTOR PRO: O ROBÔ QUE OPERA TENDÊNCIAS DE MERCADO PARA VOCÊ",
             "descricao": "Algoritmo avançado que identifica oportunidades de lucro real em tempo recorde através de diagramas de tendência e análise de dados massiva.",
             "beneficios": "Tecnologia de ponta que ilustra resultados e automatiza sua rentabilidade.",
-            "faq": "Como recebo? Imediato via e-mail. Precisa de experiência? Não, a IA faz a análise.",
+            "faq": "Como recebo? Imediato via e-mail. Precisa de experiência? Não.",
             "img": "https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=1200"
         }
     }
@@ -99,7 +104,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
     return f"""<!DOCTYPE html>
     <html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{tema} | Nexus Alpha</title>{criar_estilo()}</head>
     <body><div class="bg-hero"></div><div class="max-w-6xl mx-auto px-6 py-20">
-    <header class="flex justify-between items-center mb-16"><a href="index.html" class="text-2xl font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-[10px] opacity-40 font-bold italic">INTELLIGENCE V.2026</div></header>
+    <header class="flex justify-between items-center mb-16"><a href="index.html" class="text-2xl font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-[10px] opacity-40 font-bold italic">INTELLIGENCE V.2026 - FULL SYNC</div></header>
     {conteudo}{secao_rel}
     <footer class="mt-40 py-10 border-t border-white/10 text-[10px] opacity-40 text-center uppercase tracking-widest font-bold">
     <p>© 2026 Nexus Alpha System - Brasil</p><div class="mt-6 flex justify-center gap-8"><a href="privacidade.html" class="text-white no-underline hover:text-green-500">Privacidade</a><a href="termos.html" class="text-white no-underline hover:text-green-500">Termos</a></div></footer></div></body></html>"""
