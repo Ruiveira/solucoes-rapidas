@@ -1,102 +1,65 @@
 import os
 
 def criar_estilo():
-    # IMAGEM FIXA: Alta Performance para todo o site
     foto_unificada = "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop"
-
     return f"""
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <meta name="description" content="Protocolo Nexus Alpha - Resultados Reais.">
-    <meta name="keywords" content="renda extra, score alto, finanças">
-    <meta name="robots" content="index, follow">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Inter:wght@300;400;700&display=swap');
-        
-        body {{ 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; padding: 0;
-            background: #020617;
-            min-height: 100vh;
-            color: #fff;
-        }}
-        
-        .bg-hero {{
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}');
-            background-size: cover; background-position: center; z-index: -1;
-        }}
-
-        .titulo-master {{ 
-            font-family: 'Montserrat', sans-serif; font-weight: 800;
-            letter-spacing: -0.05em; line-height: 0.85;
-            color: #39FF14;
-        }}
-
-        .neon-text {{ color: #39FF14; }}
-        .white-text {{ color: #ffffff; }}
-
-        .glass {{ 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(25px); border-radius: 3rem;
-        }}
-
-        .btn-venda {{ 
-            background: #ffffff; color: #000000; 
-            font-family: 'Montserrat', sans-serif; font-weight: 800; 
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }}
-
+        body {{ font-family: 'Inter', sans-serif; background: #020617; color: #fff; margin: 0; }}
+        .bg-hero {{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.85) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}'); background-size: cover; background-position: center; z-index: -1; }}
+        .titulo-master {{ font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: #39FF14; }}
+        .glass {{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border-radius: 2rem; }}
+        .btn-venda {{ background: #fff; color: #000; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; }}
         .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }}
+        .neon-text {{ color: #39FF14; }}
     </style>
     """
 
+def obter_copy(tema):
+    copys = {
+        "Score 900 Turbo": "Chega de ter crédito negado. Nosso protocolo revela os 7 'triggers' bancários que aumentam sua pontuação de forma orgânica e acelerada. Você vai entender como o sistema de bureaus funciona e como se tornar o cliente favorito dos bancos em tempo recorde.",
+        "Renda Extra": "Descubra como transformar seu tempo livre em uma máquina de gerar capital utilizando apenas o seu celular. Não é promessa mágica; é um método validado de micro-tarefas e arbitragem digital que deposita valores reais na sua conta diariamente.",
+        "Planilha Lucros": "Quem não mede, não gerencia. Esta ferramenta automatizada com IA organiza seus gastos, projeta seus lucros e identifica onde você está perdendo dinheiro. Tenha o controle absoluto do seu patrimônio com uma interface intuitiva e profissional."
+    }
+    return copys.get(tema, "Protocolo de Alta Performance.")
+
 def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
-    copy_convencimento = f"O protocolo <strong>{tema}</strong> é a peça que faltava. Desenvolvido por IAs de alta performance."
-
+    copy_detalhada = obter_copy(tema)
+    
     html_relacionados = ""
-    if relacionados:
-        for p in relacionados:
-            html_relacionados += f'''
-            <a href="{p['slug']}.html" class="glass p-10 block hover:bg-white/10 transition-all">
-                <h4 class="titulo-master text-xl mb-4 uppercase" style="color: #39FF14">{p['nome']}</h4>
-                <p class="white-text font-bold text-3xl" style="color:white">{p['preco']}</p>
-            </a>
-            '''
+    for p in relacionados:
+        html_relacionados += f'''
+        <a href="{p['slug']}.html" class="glass p-8 block hover:bg-white/10 transition-all text-center">
+            <h4 class="titulo-master text-lg mb-2 uppercase italic">{p['nome']}</h4>
+            <p class="text-white font-bold text-2xl">{p['preco']}</p>
+        </a>'''
 
-    secao_relacionados = ""
-    if eh_detalhes:
-        secao_relacionados = f"""
-        <div class="mt-40 pt-20 border-t border-white/10 text-center">
-            <h3 class="white-text titulo-master text-4xl mb-12 uppercase italic">Produtos Relacionados</h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                {html_relacionados}
-            </div>
-        </div>
-        """
+    secao_relacionados = f"""
+    <div class="mt-32 pt-16 border-t border-white/10">
+        <h3 class="text-white titulo-master text-3xl mb-10 uppercase italic text-center">Produtos Relacionados</h3>
+        <div class="grid md:grid-cols-3 gap-6">{html_relacionados}</div>
+    </div>""" if eh_detalhes else ""
 
-    conteudo_extra = ""
-    if eh_detalhes:
-        conteudo_extra = f"""
-        <div class="grid md:grid-cols-2 gap-8 mt-20 text-left border-t border-white/10 pt-16">
-            <div class="glass p-10">
-                <h3 class="titulo-master text-2xl mb-6 uppercase italic">#Plano de Ação</h3>
-                <ul class="space-y-4">
-                    <li class="white-text"><i class="fas fa-bolt mr-2" style="color: #FFD700;"></i> Implementação em menos de 24h</li>
-                    <li class="white-text"><i class="fas fa-lock mr-2" style="color: #39FF14;"></i> Estratégia Blindada Antiautolote</li>
-                    <li class="white-text"><i class="fas fa-chart-line mr-2" style="color: #A855F7;"></i> Escalonamento de Ganhos</li>
-                </ul>
-            </div>
-            <div class="glass p-10 text-center flex flex-col justify-center">
-                <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2 italic">Oferta Vitalícia</span>
-                <div class="white-text titulo-master text-6xl mb-8 tracking-tighter">{preco}</div>
-                <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
-            </div>
+    conteudo_venda = f"""
+    <div class="grid md:grid-cols-2 gap-12 mt-16 text-left">
+        <div class="glass p-10">
+            <h3 class="titulo-master text-2xl mb-6 uppercase italic">O que você vai dominar:</h3>
+            <p class="text-slate-300 leading-relaxed mb-6">{copy_detalhada}</p>
+            <ul class="space-y-4 text-sm">
+                <li><i class="fas fa-bolt mr-2" style="color:#FFD700"></i> <strong>Acesso Imediato:</strong> Download liberado após o PIX.</li>
+                <li><i class="fas fa-lock mr-2" style="color:#39FF14"></i> <strong>Método Seguro:</strong> Sem riscos ou exposição de dados.</li>
+                <li><i class="fas fa-chart-line mr-2" style="color:#A855F7"></i> <strong>Escalabilidade:</strong> Resultados que crescem com você.</li>
+            </ul>
         </div>
-        """
+        <div class="glass p-10 text-center flex flex-col justify-center">
+            <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2 italic">Acesso Vitalício + Atualizações</span>
+            <div class="text-white titulo-master text-7xl mb-8 tracking-tighter">{preco}</div>
+            <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
+            <p class="text-[10px] mt-6 opacity-50 uppercase">Pagamento Processado por Stripe de Alta Segurança</p>
+        </div>
+    </div>""" if eh_detalhes else ""
 
     return f"""
     <!DOCTYPE html>
@@ -109,13 +72,13 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
     <body>
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
-            <header class="text-left mb-20">
-                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 neon-text italic">Nexus AI Bot Active</div>
-                <h1 class="titulo-master text-6xl md:text-[100px] uppercase italic mb-8">#{tema}</h1>
-                <p class="max-w-xl text-slate-300 text-xl leading-relaxed mb-10">{copy_convencimento}</p>
-                {f'<a href="detalhes.html" class="btn-venda px-12 py-5 rounded-full uppercase tracking-widest text-sm">Explorar Solução</a>' if not eh_detalhes else ""}
+            <header class="mb-12">
+                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold neon-text mb-6">NEXUS ALPHA SYSTEM v2.0</div>
+                <h1 class="titulo-master text-6xl md:text-[90px] uppercase italic mb-6">#{tema}</h1>
+                <p class="max-w-2xl text-slate-300 text-xl leading-relaxed">A solução definitiva para quem busca o próximo nível financeiro. Sem enrolação, direto ao ponto.</p>
+                {f'<a href="detalhes.html" class="btn-venda px-12 py-5 mt-10 inline-block rounded-full uppercase text-sm">Ver Detalhes do Método</a>' if not eh_detalhes else ""}
             </header>
-            {conteudo_extra}
+            {conteudo_venda}
             {secao_relacionados}
         </div>
     </body>
@@ -125,19 +88,13 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
 def criar_pagina_vendas(tema, link_stripe):
     link_venda = "https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v"
     preco_final = "R$ 19,90"
-    
     relacionados = [
         {"nome": "Score 900 Turbo", "preco": preco_final, "slug": "score", "link": link_venda},
         {"nome": "Renda Extra", "preco": preco_final, "slug": "renda", "link": link_venda},
         {"nome": "Planilha Lucros", "preco": preco_final, "slug": "planilha", "link": link_venda}
     ]
-
-    with open("index.html", "w", encoding="utf-8") as f:
-        f.write(gerar_layout_pagina(tema, preco_final, "detalhes.html"))
-    
-    with open("detalhes.html", "w", encoding="utf-8") as f:
-        f.write(gerar_layout_pagina(tema, preco_final, link_venda, eh_detalhes=True, relacionados=relacionados))
-
+    with open("index.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, preco_final, "detalhes.html"))
+    with open("detalhes.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, preco_final, link_venda, eh_detalhes=True, relacionados=relacionados))
     for p in relacionados:
         with open(f"{p['slug']}.html", "w", encoding="utf-8") as f:
             outros = [i for i in relacionados if i['slug'] != p['slug']]
