@@ -1,19 +1,63 @@
 import os
 
 def criar_estilo():
+    # Imagem de Alta Performance Unificada
     foto_unificada = "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop"
+
     return f"""
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <meta name="description" content="Protocolo Nexus Alpha - Alta Performance e Resultados Reais.">
+    <meta name="keywords" content="renda extra, score alto, finanças, lucratividade, inteligencia artificial">
+    <meta name="robots" content="index, follow">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Inter:wght@300;400;700&display=swap');
-        body {{ font-family: 'Inter', sans-serif; background: #020617; color: #fff; margin: 0; }}
-        .bg-hero {{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.85) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}'); background-size: cover; background-position: center; z-index: -1; }}
-        .titulo-master {{ font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: #39FF14; }}
-        .glass {{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border-radius: 2rem; }}
-        .btn-venda {{ background: #fff; color: #000; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; }}
-        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }}
+        
+        body {{ 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; padding: 0;
+            background: #020617;
+            min-height: 100vh;
+            color: #fff;
+        }}
+        
+        .bg-hero {{
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.85) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}');
+            background-size: cover; background-position: center; z-index: -1;
+        }}
+
+        .titulo-master {{ 
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            letter-spacing: -0.05em; line-height: 0.85;
+            color: #39FF14;
+        }}
+
         .neon-text {{ color: #39FF14; }}
+        .white-text {{ color: #ffffff; }}
+
+        .glass {{ 
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(25px); border-radius: 2rem;
+        }}
+
+        .btn-venda {{ 
+            background: #ffffff; color: #000000; 
+            font-family: 'Montserrat', sans-serif; font-weight: 800; 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: block; width: 100%; text-align: center;
+        }}
+
+        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }}
+        
+        .payment-logos {{
+            display: flex; justify-content: center; align-items: center; gap: 15px;
+            margin-top: 20px; opacity: 0.8; filter: grayscale(100%) brightness(200%);
+        }}
+        .payment-logos i {{ font-size: 1.5rem; }}
     </style>
     """
 
@@ -28,19 +72,33 @@ def obter_copy(tema):
 def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
     copy_detalhada = obter_copy(tema)
     
+    # HTML dos relacionados
     html_relacionados = ""
-    for p in relacionados:
-        html_relacionados += f'''
-        <a href="{p['slug']}.html" class="glass p-8 block hover:bg-white/10 transition-all text-center">
-            <h4 class="titulo-master text-lg mb-2 uppercase italic">{p['nome']}</h4>
-            <p class="text-white font-bold text-2xl">{p['preco']}</p>
-        </a>'''
+    if relacionados:
+        for p in relacionados:
+            html_relacionados += f'''
+            <a href="{p['slug']}.html" class="glass p-8 block hover:bg-white/10 transition-all text-center">
+                <h4 class="titulo-master text-lg mb-2 uppercase italic" style="color: #39FF14">{p['nome']}</h4>
+                <p class="text-white font-bold text-2xl">{p['preco']}</p>
+            </a>
+            '''
 
     secao_relacionados = f"""
     <div class="mt-32 pt-16 border-t border-white/10">
-        <h3 class="text-white titulo-master text-3xl mb-10 uppercase italic text-center">Produtos Relacionados</h3>
+        <h3 class="text-white titulo-master text-3xl mb-10 uppercase italic text-center" style="color:white">Produtos Relacionados</h3>
         <div class="grid md:grid-cols-3 gap-6">{html_relacionados}</div>
     </div>""" if eh_detalhes else ""
+
+    # Logos de Pagamento (PIX, Visa, Master, ApplePay, Barcode)
+    logos_pagamento = """
+    <div class="payment-logos">
+        <i class="fab fa-pix" title="PIX"></i>
+        <i class="fab fa-cc-visa" title="Visa"></i>
+        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+        <i class="fab fa-apple-pay" title="Apple Pay"></i>
+        <i class="fas fa-barcode" title="Boleto"></i>
+    </div>
+    """
 
     conteudo_venda = f"""
     <div class="grid md:grid-cols-2 gap-12 mt-16 text-left">
@@ -48,16 +106,17 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
             <h3 class="titulo-master text-2xl mb-6 uppercase italic">O que você vai dominar:</h3>
             <p class="text-slate-300 leading-relaxed mb-6">{copy_detalhada}</p>
             <ul class="space-y-4 text-sm">
-                <li><i class="fas fa-bolt mr-2" style="color:#FFD700"></i> <strong>Acesso Imediato:</strong> Download liberado após o PIX.</li>
-                <li><i class="fas fa-lock mr-2" style="color:#39FF14"></i> <strong>Método Seguro:</strong> Sem riscos ou exposição de dados.</li>
-                <li><i class="fas fa-chart-line mr-2" style="color:#A855F7"></i> <strong>Escalabilidade:</strong> Resultados que crescem com você.</li>
+                <li><i class="fas fa-bolt mr-2" style="color:#FFD700"></i> <strong>Acesso Imediato:</strong> Download liberado via e-mail.</li>
+                <li><i class="fas fa-lock mr-2" style="color:#39FF14"></i> <strong>Método Seguro:</strong> Sem riscos bancários.</li>
+                <li><i class="fas fa-chart-line mr-2" style="color:#A855F7"></i> <strong>Escalabilidade:</strong> Resultados comprovados.</li>
             </ul>
         </div>
         <div class="glass p-10 text-center flex flex-col justify-center">
-            <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2 italic">Acesso Vitalício + Atualizações</span>
-            <div class="text-white titulo-master text-7xl mb-8 tracking-tighter">{preco}</div>
+            <span class="text-xs font-bold uppercase tracking-widest neon-text mb-2 italic">Oferta Vitalícia</span>
+            <div class="text-white titulo-master text-7xl mb-8 tracking-tighter" style="color:white">{preco}</div>
             <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
-            <p class="text-[10px] mt-6 opacity-50 uppercase">Pagamento Processado por Stripe de Alta Segurança</p>
+            {logos_pagamento}
+            <p class="text-[10px] mt-6 opacity-50 uppercase">Processamento Criptografado via Stripe</p>
         </div>
     </div>""" if eh_detalhes else ""
 
@@ -73,9 +132,9 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
             <header class="mb-12">
-                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold neon-text mb-6">NEXUS ALPHA SYSTEM v2.0</div>
+                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold neon-text mb-6">NEXUS AI BOT ACTIVE</div>
                 <h1 class="titulo-master text-6xl md:text-[90px] uppercase italic mb-6">#{tema}</h1>
-                <p class="max-w-2xl text-slate-300 text-xl leading-relaxed">A solução definitiva para quem busca o próximo nível financeiro. Sem enrolação, direto ao ponto.</p>
+                <p class="max-w-2xl text-slate-300 text-xl leading-relaxed">Alta performance financeira e protocolos exclusivos de lucratividade.</p>
                 {f'<a href="detalhes.html" class="btn-venda px-12 py-5 mt-10 inline-block rounded-full uppercase text-sm">Ver Detalhes do Método</a>' if not eh_detalhes else ""}
             </header>
             {conteudo_venda}
@@ -88,13 +147,19 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
 def criar_pagina_vendas(tema, link_stripe):
     link_venda = "https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v"
     preco_final = "R$ 19,90"
+    
     relacionados = [
         {"nome": "Score 900 Turbo", "preco": preco_final, "slug": "score", "link": link_venda},
         {"nome": "Renda Extra", "preco": preco_final, "slug": "renda", "link": link_venda},
         {"nome": "Planilha Lucros", "preco": preco_final, "slug": "planilha", "link": link_venda}
     ]
-    with open("index.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, preco_final, "detalhes.html"))
-    with open("detalhes.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, preco_final, link_venda, eh_detalhes=True, relacionados=relacionados))
+
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(gerar_layout_pagina(tema, preco_final, "detalhes.html"))
+    
+    with open("detalhes.html", "w", encoding="utf-8") as f:
+        f.write(gerar_layout_pagina(tema, preco_final, link_venda, eh_detalhes=True, relacionados=relacionados))
+
     for p in relacionados:
         with open(f"{p['slug']}.html", "w", encoding="utf-8") as f:
             outros = [i for i in relacionados if i['slug'] != p['slug']]
