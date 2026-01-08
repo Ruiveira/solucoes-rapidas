@@ -20,13 +20,13 @@ def criar_estilo():
 
 def obter_copy(tema):
     copys = {
-        "Score 900 Turbo": "Protocolo para destravar seu crédito e elevar sua pontuação bancária rapidamente.",
-        "Renda Extra": "Método validado para gerar ganhos diários usando apenas o celular.",
-        "Planilha Lucros": "Ferramenta de IA para organizar finanças e projetar lucros reais.",
-        "IA Automação": "O segredo para colocar processos digitais no piloto automático e lucrar dormindo.",
-        "Copywriting Master": "A arte de escrever textos que vendem qualquer produto em segundos."
+        "Score 900 Turbo": "O Guia Secreto para dominar o sistema bancário. Aprenda como os algoritmos de crédito te avaliam e ative os gatilhos ocultos para subir sua pontuação em tempo recorde. Ideal para quem busca financiamentos e cartões de elite.",
+        "Renda Extra": "Transforme seu dispositivo móvel em uma fonte de renda passiva e ativa. Métodos validados de arbitragem digital e micro-tarefas de alta remuneração. O mapa completo para lucrar diariamente sem sair de casa.",
+        "Planilha Lucros": "Gestão financeira com inteligência artificial aplicada. Visualize cada centavo, projete lucros futuros e identifique gargalos de gastos automaticamente. O controle que os milionários usam para nunca perder dinheiro.",
+        "IA Automação": "Coloque a inteligência artificial para trabalhar 24h por você. Automação de vendas e processos digitais que geram receita no piloto automático.",
+        "Copywriting Master": "Domine a escrita que imprime dinheiro. Persuasão avançada para vender qualquer produto digital em segundos através de gatilhos psicológicos."
     }
-    return copys.get(tema, "Protocolo de Alta Performance Nexus Alpha.")
+    return copys.get(tema, "Protocolo de Alta Performance Nexus Alpha v3.0.")
 
 def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
     copy_detalhada = obter_copy(tema)
@@ -45,7 +45,7 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
         <div class="grid md:grid-cols-3 gap-6">{html_relacionados}</div>
     </div>""" if eh_detalhes else ""
 
-    # Pix Removido - Apenas Stripe Nativo
+    # PIX REMOVIDO TOTALMENTE - Apenas Stripe (Visa, Master, ApplePay, Boleto)
     logos_pagamento = """
     <div class="payment-container">
         <div class="logos-row">
@@ -54,7 +54,7 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
             <i class="fab fa-apple-pay" style="color: #fff; opacity: 0.9;"></i>
             <i class="fas fa-barcode" style="color: #fff; opacity: 0.7;"></i>
         </div>
-        <p class="text-[9px] opacity-40 uppercase tracking-widest text-center">Pagamento 100% Seguro via Stripe</p>
+        <p class="text-[9px] opacity-40 uppercase tracking-widest text-center">Pagamento Seguro via Stripe</p>
     </div>
     """
 
@@ -64,14 +64,14 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
             <h3 class="titulo-master text-2xl mb-6 uppercase italic">Protocolo {tema}:</h3>
             <p class="text-slate-300 leading-relaxed mb-6">{copy_detalhada}</p>
             <ul class="space-y-4 text-sm">
-                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Entrega Digital via E-mail</li>
-                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Metodologia Passo a Passo</li>
+                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> <strong>Acesso Imediato:</strong> Digital e Vitalício.</li>
+                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> <strong>Tecnologia Nexus:</strong> Atualizado via IA.</li>
             </ul>
         </div>
         <div class="glass p-10 text-center flex flex-col justify-center">
-            <span class="text-xs font-bold uppercase tracking-widest text-green-400 mb-2 italic">Oferta Nexus Alpha</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-green-400 mb-2 italic">Acesso Exclusivo</span>
             <div class="text-white titulo-master text-7xl mb-8 tracking-tighter" style="color:white">{preco}</div>
-            <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
+            <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">ADQUIRIR AGORA</a>
             {logos_pagamento}
         </div>
     </div>""" if eh_detalhes else ""
@@ -88,9 +88,9 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
             <header class="mb-12">
-                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold text-green-400 mb-6">NEXUS AI SYSTEMS</div>
+                <div class="bg-white/10 w-fit px-4 py-1 rounded-full text-[10px] font-bold text-green-400 mb-6">NEXUS AI SYSTEMS BRASIL</div>
                 <h1 class="titulo-master text-6xl md:text-[90px] uppercase italic mb-6">#{tema}</h1>
-                {f'<a href="detalhes.html" class="btn-venda px-12 py-5 mt-10 inline-block rounded-full uppercase text-sm">Acessar Conteúdo</a>' if not eh_detalhes else ""}
+                {f'<a href="detalhes.html" class="btn-venda px-12 py-5 mt-10 inline-block rounded-full uppercase text-sm">Entrar no Sistema</a>' if not eh_detalhes else ""}
             </header>
             {conteudo_venda}
             {secao_relacionados}
@@ -103,7 +103,6 @@ def criar_pagina_vendas(tema, link_stripe):
     link_venda = "https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v"
     preco_final = "R$ 19,90"
     
-    # Base de Dados Dinâmica (Robô pode adicionar mais aqui)
     relacionados = [
         {"nome": "Score 900 Turbo", "preco": preco_final, "slug": "score", "link": link_venda},
         {"nome": "Renda Extra", "preco": preco_final, "slug": "renda", "link": link_venda},
