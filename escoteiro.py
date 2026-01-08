@@ -14,7 +14,7 @@ def criar_estilo():
         .btn-venda {{ background: #39FF14 !important; color: #000 !important; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; border-radius: 1rem; text-decoration: none; border: none; cursor: pointer; }}
         .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 50px rgba(57, 255, 20, 0.9); }}
         .valor-branco {{ color: #FFFFFF !important; font-family: 'Montserrat', sans-serif; font-weight: 800; }}
-        .img-premium {{ width: 100%; border-radius: 1.5rem; border: 1px solid rgba(57, 255, 20, 0.3); }}
+        .img-premium {{ width: 100%; border-radius: 1.5rem; border: 1px solid rgba(57, 255, 20, 0.3); box-shadow: 0 0 40px rgba(0,0,0,0.5); }}
     </style>
     """
 
@@ -47,11 +47,11 @@ def obter_copy_vendas(tema):
             "img": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200"
         },
         "IA Investor Pro": {
-            "headline": "IA INVESTOR PRO: O ROBÔ QUE OPERA TENDÊNCIAS DE MERCADO PARA VOCÊ",
-            "descricao": "Algoritmo avançado que identifica as melhores oportunidades de investimento em tempo real.",
-            "beneficios": "Tecnologia de ponta para quem busca rendimentos acima da média.",
-            "faq": "Como recebo? Via e-mail após a compra. É difícil? Não, o robô faz o trabalho pesado.",
-            "img": "https://images.unsplash.com/photo-1611974714658-058f40da23fb?q=80&w=1200"
+            "headline": "IA INVESTOR PRO: O ALGORITMO QUE IDENTIFICA LUCROS ANTES DO MERCADO",
+            "descricao": "Utilize o poder do processamento neural para prever tendências e automatizar sua análise de investimentos.",
+            "beneficios": "Tecnologia exclusiva para antecipar movimentos de alta e proteger seu capital.",
+            "faq": "Precisa de experiência? Não, a IA faz a análise. Recebo o código? Recebe o acesso ao dashboard.",
+            "img": "https://images.unsplash.com/photo-1642790103517-18129f55253a?q=80&w=1200"
         }
     }
     return banco.get(tema, banco["Score 900 Turbo"])
@@ -59,7 +59,6 @@ def obter_copy_vendas(tema):
 def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], legal_type=None):
     copy = obter_copy_vendas(tema)
     
-    # RELACIONADOS SEM O PRODUTO ATUAL
     html_rel = ""
     for p in relacionados:
         if p['nome'] != tema:
@@ -75,7 +74,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
         conteudo = f"""
         <div class="text-center mb-16"><h1 class="titulo-master text-4xl md:text-7xl mb-6 italic">{copy['headline']}</h1></div>
         <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <div class="glass p-2"><img src="{copy['img']}" class="img-premium"></div>
+            <div class="glass p-2"><img src="{copy['img']}" class="img-premium" alt="Visual do {tema}"></div>
             <div class="space-y-6">
                 <h3 class="titulo-master text-2xl italic">Descrição Detalhada:</h3>
                 <p class="text-slate-300 text-lg">{copy['descricao']}</p>
@@ -84,7 +83,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
         </div>
         <div class="glass p-10 text-center mb-20">
             <h3 class="titulo-master text-2xl mb-8 italic">AVALIAÇÃO</h3>
-            <div class="grid md:grid-cols-2 gap-6 opacity-60 italic text-sm"><p>"Resultados rápidos." - Carlos R.</p><p>"Sistema impecável." - Julia M.</p></div>
+            <div class="grid md:grid-cols-2 gap-6 opacity-60 italic text-sm"><p>"Resultados consistentes." - Andre V.</p><p>"A IA é realmente rápida." - Roberta L.</p></div>
         </div>
         <div class="glass p-12 text-center neon-border mb-20">
             <div class="valor-branco text-8xl md:text-9xl mb-10">{preco}</div>
