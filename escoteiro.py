@@ -14,7 +14,7 @@ def criar_estilo():
         .btn-venda {{ background: #39FF14 !important; color: #000 !important; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; border-radius: 1rem; text-decoration: none; border: none; cursor: pointer; }}
         .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 50px rgba(57, 255, 20, 0.9); }}
         .valor-branco {{ color: #FFFFFF !important; font-family: 'Montserrat', sans-serif; font-weight: 800; }}
-        .img-premium {{ width: 100%; border-radius: 1.5rem; border: 1px solid rgba(57, 255, 20, 0.3); box-shadow: 0 0 40px rgba(57, 255, 20, 0.2); }}
+        .img-premium {{ width: 100%; border-radius: 1.5rem; border: 1px solid rgba(57, 255, 20, 0.3); box-shadow: 0 0 40px rgba(57, 255, 20, 0.2); display: block; }}
     </style>
     """
 
@@ -51,7 +51,7 @@ def obter_copy_vendas(tema):
             "descricao": "Algoritmo avançado que identifica oportunidades de lucro real através de diagramas de tendência e análise de dados massiva.",
             "beneficios": "Tecnologia de ponta para automatizar sua rentabilidade com precisão.",
             "faq": "Como recebo? Imediato. Precisa de experiência? Não.",
-            "img": "https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=1200" # IMAGEM FIXADA AQUI
+            "img": "https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=1200"
         }
     }
     return banco.get(tema, banco["Score 900 Turbo"])
@@ -73,7 +73,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
         conteudo = f"""
         <div class="text-center mb-16"><h1 class="titulo-master text-4xl md:text-7xl mb-6 italic">{copy['headline']}</h1></div>
         <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <div class="glass p-2"><img src="{copy['img']}" class="img-premium" alt="Visual de Alta Performance"></div>
+            <div class="glass p-2"><img src="{copy['img']}" class="img-premium" alt="IMAGEM {tema}"></div>
             <div class="space-y-6">
                 <h3 class="titulo-master text-2xl italic">Descrição Detalhada:</h3>
                 <p class="text-slate-300 text-lg">{copy['descricao']}</p>
@@ -82,7 +82,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
         </div>
         <div class="glass p-10 text-center mb-20">
             <h3 class="titulo-master text-2xl mb-8 italic">AVALIAÇÃO</h3>
-            <div class="grid md:grid-cols-2 gap-6 opacity-60 italic text-sm"><p>"IA extraordinária." - Carlos R.</p><p>"O gráfico de tendências é cirúrgico." - Julia M.</p></div>
+            <div class="grid md:grid-cols-2 gap-6 opacity-60 italic text-sm"><p>"IA extraordinária." - Carlos R.</p><p>"Resultados consistentes." - Julia M.</p></div>
         </div>
         <div class="glass p-12 text-center neon-border mb-20">
             <div class="valor-branco text-8xl md:text-9xl mb-10">{preco}</div>
@@ -90,6 +90,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
             <div class="mt-8 flex items-center justify-center gap-4"><i class="fas fa-shield-alt text-2xl text-green-500"></i><span class="font-bold uppercase text-xs text-white">Garantia 7 Dias</span></div>
         </div>
         <div class="glass p-10 mb-10"><h3 class="titulo-master text-center text-2xl mb-6 italic">FAQ</h3><p class="text-center italic opacity-70">{copy['faq']}</p></div>
+        <p class="text-center opacity-40 text-xs italic">Suporte: suporte@nexusalpha.com | Sistema Seguro</p>
         """
     else:
         conteudo = f'<h1 class="titulo-master text-7xl md:text-9xl mb-12 italic">#{tema}</h1><a href="detalhes.html" class="btn-venda py-6 text-xl max-w-sm">ENTRAR NO SISTEMA</a>'
@@ -97,7 +98,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
     return f"""<!DOCTYPE html>
     <html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{tema} | Nexus Alpha</title>{criar_estilo()}</head>
     <body><div class="bg-hero"></div><div class="max-w-6xl mx-auto px-6 py-20">
-    <header class="flex justify-between items-center mb-16"><a href="index.html" class="text-2xl font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-[10px] opacity-40 font-bold italic">FULL SYNC 24/7</div></header>
+    <header class="flex justify-between items-center mb-16"><a href="index.html" class="text-2xl font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-[10px] opacity-40 font-bold italic text-white">FULL SYNC 24/7 ACTIVE</div></header>
     {conteudo}{secao_rel}
     <footer class="mt-40 py-10 border-t border-white/10 text-[10px] opacity-40 text-center uppercase tracking-widest font-bold">
     <p>© 2026 Nexus Alpha System - Brasil</p><div class="mt-6 flex justify-center gap-8"><a href="privacidade.html" class="text-white no-underline hover:text-green-500">Privacidade</a><a href="termos.html" class="text-white no-underline hover:text-green-500">Termos</a></div></footer></div></body></html>"""
