@@ -11,9 +11,27 @@ def criar_estilo():
         .bg-hero {{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}'); background-size: cover; background-position: center; z-index: -1; }}
         .titulo-master {{ font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: #39FF14; text-transform: uppercase; font-style: italic; }}
         .glass {{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border-radius: 2rem; }}
+        
         /* BOTÃO ADQUIRIR AGORA - ALTERADO PARA BRANCO */
-        .btn-venda {{ background: #ffffff; color: #000000; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; border-radius: 1rem; text-decoration: none; border: none; cursor: pointer; }}
-        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 255, 255, 0.3); }}
+        .btn-venda {{ 
+            background: #FFFFFF; 
+            color: #000000; 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 800; 
+            transition: 0.3s; 
+            display: block; 
+            width: 100%; 
+            text-align: center; 
+            border-radius: 1rem; 
+            text-decoration: none; 
+            border: none; 
+            cursor: pointer; 
+        }}
+        .btn-venda:hover {{ 
+            transform: scale(1.05); 
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.4); 
+        }}
+
         .neon-border {{ border: 1px solid #39FF14; }}
         .img-premium {{ width: 100%; border-radius: 1.5rem; border: 1px solid rgba(57, 255, 20, 0.3); box-shadow: 0 0 30px rgba(0,0,0,0.5); }}
         .conteudo-legal h2 {{ color: #39FF14; font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(57,255,20,0.2); }}
@@ -60,6 +78,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
             html_rel += f'''<a href="{p['slug']}.html" class="glass p-6 block hover:bg-white/10 text-center border border-white/5 no-underline">
                 <h4 class="titulo-master text-xs mb-1" style="color: #39FF14">{p['nome']}</h4>
                 <p class="text-white font-bold">{p['preco']}</p></a>'''
+
     secao_rel = f"""<div class="mt-24 pt-10 border-t border-white/10"><h3 class="titulo-master text-center text-xl mb-8 italic">Outros Protocolos Elite</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-6">{html_rel}</div></div>""" if relacionados else ""
 
     if legal_type:
@@ -92,7 +111,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
             </div>
         </div>
         <div class="glass p-10 mb-10"><h3 class="titulo-master text-center text-2xl mb-6 italic">FAQ</h3><p class="text-center italic opacity-70">{copy['faq']}</p></div>
-        <p class="text-center opacity-40 text-xs">Suporte: suporte@nexusalpha.com | Pagamento Seguro via Stripe/Hotmart</p>
+        <p class="text-center opacity-40 text-xs">Suporte: suporte@nexusalpha.com | Pagamento Seguro via Stripe</p>
         """
     else:
         conteudo = f'<h1 class="titulo-master text-7xl md:text-9xl mb-12 italic">#{tema}</h1><a href="detalhes.html" class="btn-venda py-6 text-xl max-w-sm">ENTRAR NO SISTEMA</a>'
