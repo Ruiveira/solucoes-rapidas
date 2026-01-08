@@ -12,7 +12,7 @@ def criar_estilo():
         .titulo-master {{ font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: #39FF14; text-transform: uppercase; font-style: italic; }}
         .glass {{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border-radius: 1.5rem; }}
         
-        /* BOTÃO EM LINHA ÚNICA E PROPORCIONAL */
+        /* BOTÃO AJUSTADO PARA NÃO QUEBRAR LINHA */
         .btn-venda {{ 
             background: #39FF14 !important; 
             color: #000 !important; 
@@ -22,38 +22,35 @@ def criar_estilo():
             align-items: center; 
             justify-content: center;
             width: 100%; 
-            max-width: 380px; 
+            max-width: 400px; 
             border-radius: 0.8rem; 
             text-decoration: none; 
             padding: 1rem 0.5rem; 
-            font-size: 1.3rem; 
+            font-size: 1.4rem; 
             white-space: nowrap; 
             text-transform: uppercase;
-            transition: 0.3s;
         }}
-        .btn-venda:hover {{ transform: scale(1.02); box-shadow: 0 0 30px rgba(57, 255, 20, 0.5); }}
         
-        /* VALOR: R$ DO MESMO TAMANHO QUE O PREÇO */
+        /* VALOR AJUSTADO LADO A LADO */
         .valor-branco {{ 
             color: #FFFFFF !important; 
             font-family: 'Montserrat', sans-serif; 
             font-weight: 800; 
-            font-size: 3rem; 
+            font-size: 3.5rem; 
             display: flex; 
-            flex-direction: row;
             align-items: center; 
             justify-content: center; 
-            gap: 12px; 
+            gap: 8px; 
             white-space: nowrap;
-            line-height: 1;
         }}
-        .valor-branco span {{ font-size: 3rem; }} /* IGUALADO AO VALOR */
+        .valor-branco span {{ font-size: 1.5rem; }}
 
-        /* RESPONSIVIDADE MOBILE */
+        /* RESPONSIVIDADE MOBILE ESTREITA */
         @media (max-width: 480px) {{
-            .valor-branco, .valor-branco span {{ font-size: 2.2rem; }}
-            .btn-venda {{ font-size: 1rem; padding: 0.8rem 0.2rem; }}
-            .titulo-master {{ font-size: 1.6rem !important; }}
+            .valor-branco {{ font-size: 2.8rem; }}
+            .valor-branco span {{ font-size: 1.2rem; }}
+            .btn-venda {{ font-size: 1.1rem; padding: 0.8rem 0.3rem; }}
+            .titulo-master {{ font-size: 1.8rem !important; }}
         }}
         
         .img-premium {{ width: 100%; border-radius: 1rem; border: 1px solid #39FF14; box-shadow: 0 0 30px rgba(57, 255, 20, 0.2); }}
@@ -62,8 +59,8 @@ def criar_estilo():
 
 def obter_textos_legais(tipo):
     if tipo == "privacidade":
-        return """<h2>Privacidade</h2><p>Nexus Alpha 2026. Analisamos tendências orgânicas.</p>"""
-    return """<h2>Termos</h2><p>Contrato de uso oficial 2026.</p>"""
+        return """<h2>Privacidade</h2><p>Nexus Alpha 2026. Analisamos tendências de 3-7s.</p>"""
+    return """<h2>Termos</h2><p>Contrato de uso Nexus Alpha System.</p>"""
 
 def obter_copy_vendas(tema):
     banco = {
@@ -72,7 +69,7 @@ def obter_copy_vendas(tema):
             "descricao": "IA limpando seu histórico e ativando gatilhos bancários.",
             "beneficios": "Aprovação imediata em cartões Black.",
             "img": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200",
-            "avaliacoes": ["'Meu score subiu rápido!' - Ricardo S.", "'Aprovada no Black.' - Amanda L."]
+            "avaliacoes": ["'Meu score subiu em 12 dias!' - Ricardo S.", "'Finalmente aprovado.' - Amanda L."]
         },
         "Renda Extra": {
             "headline": "RENDA EXTRA DIÁRIA",
@@ -83,17 +80,17 @@ def obter_copy_vendas(tema):
         },
         "Planilha Lucros": {
             "headline": "PLANILHA IA ELITE",
-            "descricao": "Controle total de ganhos com inteligência de dados.",
+            "descricao": "Controle total de ganhos e gastos com inteligência de dados.",
             "beneficios": "Acelere sua independência financeira.",
             "img": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200",
-            "avaliacoes": ["'Organizei tudo.' - Paulo J.", "'A melhor ferramenta.' - Helena M."]
+            "avaliacoes": ["'Organizei tudo em 1 hora.' - Paulo J.", "'A melhor ferramenta.' - Helena M."]
         },
         "IA Investor Pro": {
             "headline": "IA INVESTOR PRO",
             "descricao": "Algoritmo avançado identificando lucros em tempo real.",
             "beneficios": "Tecnologia de ponta para automatizar rentabilidade.",
             "img": "https://images.squarespace-cdn.com/content/v1/5f973693e54f0a28f4f3e696/1706645353153-6U1V5X7X9P4Z4W5Z5X5Z/IA_Investor_Pro_Expert.jpg",
-            "avaliacoes": ["'IA cirúrgica.' - Gabriel T.", "'O robô trabalha por mim.' - Sofia R."]
+            "avaliacoes": ["'IA cirúrgica nos sinais.' - Gabriel T.", "'O robô trabalha por mim.' - Sofia R."]
         }
     }
     return banco.get(tema, banco["Score 900 Turbo"])
@@ -127,18 +124,18 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
             <div class="grid md:grid-cols-2 gap-3 opacity-70 text-[11px]">{html_avalia}</div>
         </div>
         <div class="glass p-8 text-center mb-12">
-            <div class="valor-branco mb-6"><span>R$</span> 19,90</div>
+            <div class="valor-branco mb-4"><span>R$</span> 19,90</div>
             <a href="{link}" class="btn-venda">ADQUIRIR AGORA</a>
             <div class="mt-4 flex items-center justify-center gap-2 text-[10px] font-bold uppercase"><i class="fas fa-check-circle text-green-500"></i><span>Acesso Imediato</span></div>
         </div>
         """
     else:
-        conteudo = f'<h1 class="titulo-master text-5xl md:text-8xl mb-8 italic">#{tema}</h1><a href="ia-pro.html" class="btn-venda">ENTRAR NO SISTEMA</a>'
+        conteudo = f'<h1 class="titulo-master text-5xl md:text-8xl mb-8 italic">#{tema}</h1><a href="detalhes.html" class="btn-venda">ENTRAR NO SISTEMA</a>'
 
     return f"""<!DOCTYPE html>
     <html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{tema} | Nexus Alpha</title>{criar_estilo()}</head>
     <body><div class="bg-hero"></div><div class="max-w-4xl mx-auto px-5 py-10">
-    <header class="flex justify-between items-center mb-10"><a href="index.html" class="text-lg font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-[8px] opacity-40 font-bold italic text-white uppercase">FULL SYNC 24/7</div></header>
+    <header class="flex justify-between items-center mb-10"><a href="index.html" class="text-lg font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-[8px] opacity-40 font-bold italic text-white">FULL SYNC 24/7</div></header>
     {conteudo}{secao_rel}
     <footer class="mt-20 py-6 border-t border-white/10 text-[8px] opacity-40 text-center uppercase font-bold">
     <p>© 2026 Nexus Alpha System</p></footer></div></body></html>"""
@@ -152,7 +149,7 @@ def criar_pagina_vendas(tema, link_stripe):
         {"nome": "Planilha Lucros", "preco": preco_texto, "slug": "planilha", "link": link_final},
         {"nome": "IA Investor Pro", "preco": preco_texto, "slug": "ia-pro", "link": link_final}
     ]
-    with open("index.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, preco_texto, "ia-pro.html"))
+    with open("index.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, preco_texto, "detalhes.html"))
     for p in rel:
         with open(f"{p['slug']}.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(p['nome'], p['preco'], p['link'], eh_produto=True, relacionados=rel))
     with open("privacidade.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina("Privacidade", "", "", legal_type="privacidade"))
