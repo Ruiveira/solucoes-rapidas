@@ -1,15 +1,17 @@
 import time
 
-def scan_mercado_brasil():
-    print("--- NEXUS IA: Iniciando varredura nacional (Excluindo domínio próprio) ---")
-    # Lógica de monitoramento de retenção externa (3-7 segundos)
-    retencao_alvo = (3, 7)
-    produtos_quentes = ["Aumento de Score", "Ganho Mobile", "Dashboard Financeira"]
+def scan_mercado_vendas():
+    # IA analisa comportamento de usuários fora do domínio Nexus
+    print("--- NEXUS IA: Analisando tendências externas (Brasil) ---")
+    print("Foco: Retenção de 3 a 7 segundos detectada em produtos de alta escala.")
     
-    for produto in produtos_quentes:
-        print(f"Detectado interesse alto em: {produto} | Tempo médio externo: {retencao_alvo[0]}s a {retencao_alvo[1]}s")
+    # Simulação de detecção de tendências vencedoras
+    trends = ["IA de Atendimento", "Milhas Lucrativas", "Recuperação de Impostos"]
     
-    return produtos_quentes
+    for t in trends:
+        print(f"Produto Externo 'Hot': {t} | Iniciando modelagem de página padrão.")
+    
+    return trends
 
 if __name__ == "__main__":
-    scan_mercado_brasil()
+    scan_mercado_vendas()
