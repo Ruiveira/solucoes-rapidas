@@ -12,26 +12,13 @@ def criar_estilo():
         .titulo-master {{ font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: #39FF14; text-transform: uppercase; font-style: italic; }}
         .glass {{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border-radius: 2rem; }}
         
-        /* BOTÃO ADQUIRIR AGORA - ALTERADO PARA BRANCO */
-        .btn-venda {{ 
-            background: #FFFFFF; 
-            color: #000000; 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 800; 
-            transition: 0.3s; 
-            display: block; 
-            width: 100%; 
-            text-align: center; 
-            border-radius: 1rem; 
-            text-decoration: none; 
-            border: none; 
-            cursor: pointer; 
-        }}
-        .btn-venda:hover {{ 
-            transform: scale(1.05); 
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.4); 
-        }}
-
+        /* BOTÃO VERDE NEON */
+        .btn-venda {{ background: #39FF14; color: #000; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; border-radius: 1rem; text-decoration: none; border: none; cursor: pointer; }}
+        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 50px rgba(57, 255, 20, 0.8); }}
+        
+        /* PREÇO EM BRANCO */
+        .preco-destaque {{ color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 800; }}
+        
         .neon-border {{ border: 1px solid #39FF14; }}
         .img-premium {{ width: 100%; border-radius: 1.5rem; border: 1px solid rgba(57, 255, 20, 0.3); box-shadow: 0 0 30px rgba(0,0,0,0.5); }}
         .conteudo-legal h2 {{ color: #39FF14; font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(57,255,20,0.2); }}
@@ -101,17 +88,20 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
                 <p>"Suporte excelente e método impecável." - Julia M.</p>
             </div>
         </div>
+        
         <div class="glass p-12 text-center neon-border mb-20">
-            <div class="titulo-master text-8xl mb-10">{preco}</div>
+            <div class="preco-destaque text-8xl md:text-9xl mb-10">{preco}</div>
             <a href="{link}" class="btn-venda py-8 text-3xl uppercase">ADQUIRIR AGORA</a>
+            
             <div class="flex justify-center gap-6 mt-8 opacity-50 text-3xl"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-apple-pay"></i><i class="fas fa-barcode"></i></div>
-            <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-6 p-8 bg-white/5 rounded-2xl">
+            <div class="mt-8 p-6 bg-white/5 rounded-xl flex items-center justify-center gap-4">
                 <i class="fas fa-shield-alt text-4xl text-green-500"></i>
-                <div class="text-left font-bold text-sm uppercase">Garantia Incondicional de 7 Dias<br><span class="opacity-40 font-normal">Risco Zero para você</span></div>
+                <div class="text-left font-bold text-sm uppercase">Garantia Incondicional de 7 Dias<br><span class="opacity-40 font-normal text-white">Risco Zero para você</span></div>
             </div>
         </div>
+        
         <div class="glass p-10 mb-10"><h3 class="titulo-master text-center text-2xl mb-6 italic">FAQ</h3><p class="text-center italic opacity-70">{copy['faq']}</p></div>
-        <p class="text-center opacity-40 text-xs">Suporte: suporte@nexusalpha.com | Pagamento Seguro via Stripe</p>
+        <p class="text-center opacity-40 text-xs">Suporte: suporte@nexusalpha.com | Pagamento Seguro via Stripe/Hotmart</p>
         """
     else:
         conteudo = f'<h1 class="titulo-master text-7xl md:text-9xl mb-12 italic">#{tema}</h1><a href="detalhes.html" class="btn-venda py-6 text-xl max-w-sm">ENTRAR NO SISTEMA</a>'
