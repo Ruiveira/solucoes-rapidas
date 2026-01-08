@@ -106,3 +106,57 @@ Traceback (most recent call last):
     return f"""
            ^
 SyntaxError: f-string expression part cannot include a backslash
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier  # Novo módulo de aviso
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier  # Novo módulo de aviso
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier  # Novo módulo de aviso
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier  # Novo módulo de aviso
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier  # Novo módulo de aviso
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier  # Novo módulo de aviso
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier  # Novo módulo de aviso
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier  # Novo módulo de aviso
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier  # Novo módulo de aviso
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
