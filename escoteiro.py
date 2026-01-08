@@ -11,8 +11,9 @@ def criar_estilo():
         .bg-hero {{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}'); background-size: cover; background-position: center; z-index: -1; }}
         .titulo-master {{ font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: #39FF14; text-transform: uppercase; font-style: italic; }}
         .glass {{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border-radius: 2rem; }}
-        .btn-venda {{ background: #39FF14; color: #000; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; border-radius: 1rem; text-decoration: none; border: none; cursor: pointer; }}
-        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 50px rgba(57, 255, 20, 0.6); }}
+        /* BOTÃO ADQUIRIR AGORA - ALTERADO PARA BRANCO */
+        .btn-venda {{ background: #ffffff; color: #000000; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; border-radius: 1rem; text-decoration: none; border: none; cursor: pointer; }}
+        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 255, 255, 0.3); }}
         .neon-border {{ border: 1px solid #39FF14; }}
         .img-premium {{ width: 100%; border-radius: 1.5rem; border: 1px solid rgba(57, 255, 20, 0.3); box-shadow: 0 0 30px rgba(0,0,0,0.5); }}
         .conteudo-legal h2 {{ color: #39FF14; font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(57,255,20,0.2); }}
@@ -53,15 +54,12 @@ def obter_copy_vendas(tema):
 
 def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], legal_type=None):
     copy = obter_copy_vendas(tema)
-    
-    # RELACIONADOS (SEMPRE 3)
     html_rel = ""
     if relacionados:
         for p in relacionados:
             html_rel += f'''<a href="{p['slug']}.html" class="glass p-6 block hover:bg-white/10 text-center border border-white/5 no-underline">
                 <h4 class="titulo-master text-xs mb-1" style="color: #39FF14">{p['nome']}</h4>
                 <p class="text-white font-bold">{p['preco']}</p></a>'''
-
     secao_rel = f"""<div class="mt-24 pt-10 border-t border-white/10"><h3 class="titulo-master text-center text-xl mb-8 italic">Outros Protocolos Elite</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-6">{html_rel}</div></div>""" if relacionados else ""
 
     if legal_type:
@@ -88,7 +86,7 @@ def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[], le
             <div class="titulo-master text-8xl mb-10">{preco}</div>
             <a href="{link}" class="btn-venda py-8 text-3xl uppercase">ADQUIRIR AGORA</a>
             <div class="flex justify-center gap-6 mt-8 opacity-50 text-3xl"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-apple-pay"></i><i class="fas fa-barcode"></i></div>
-            <div class="mt-8 p-6 bg-white/5 rounded-xl flex items-center justify-center gap-4">
+            <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-6 p-8 bg-white/5 rounded-2xl">
                 <i class="fas fa-shield-alt text-4xl text-green-500"></i>
                 <div class="text-left font-bold text-sm uppercase">Garantia Incondicional de 7 Dias<br><span class="opacity-40 font-normal">Risco Zero para você</span></div>
             </div>
