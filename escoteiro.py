@@ -12,75 +12,111 @@ def criar_estilo():
         .titulo-master {{ font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.05em; color: #39FF14; text-transform: uppercase; font-style: italic; }}
         .glass {{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border-radius: 2rem; }}
         .btn-venda {{ background: #fff; color: #000; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; border-radius: 1rem; }}
-        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 40px rgba(57, 255, 20, 0.4); }}
+        .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 50px rgba(57, 255, 20, 0.5); border: 2px solid #39FF14; }}
         .neon-border {{ border: 1px solid #39FF14; }}
-        .clausula-box {{ font-size: 0.85rem; opacity: 0.8; line-height: 1.6; text-align: justify; }}
-        .clausula-box h3 {{ color: #39FF14; font-size: 1rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }}
+        .faq-item {{ border-bottom: 1px solid rgba(255,255,255,0.1); padding: 15px 0; }}
+        .beneficio-card {{ background: rgba(57, 255, 20, 0.05); border-left: 4px solid #39FF14; padding: 20px; border-radius: 0 1rem 1rem 0; }}
     </style>
     """
 
-def obter_secao_termos_completa():
-    return """
-    <div class="mt-20 p-10 glass border border-white/10 clausula-box">
-        <h2 class="titulo-master text-2xl mb-8 text-center">Termos de Uso e Condições Contratuais</h2>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <div>
-                <h3>1. Cláusulas Essenciais</h3>
-                <p><b>Aceitação dos Termos:</b> Ao utilizar este site ou adquirir este protocolo, o usuário concorda automaticamente com todos os termos estabelecidos em conformidade com a legislação brasileira.</p>
-                <p><b>Descrição do Serviço:</b> Oferecemos acesso a conteúdo educacional e ferramentas digitais. Requisito: idade mínima de 18 anos.</p>
-                <p><b>Responsabilidades:</b> O Usuário compromete-se a não praticar atividades maliciosas (hacking, distribuição de malware). A Empresa limita sua responsabilidade a falhas técnicas externas ou uso indevido do método.</p>
-                <p><b>Propriedade Intelectual:</b> Todo conteúdo, logotipos e marcas são de nossa propriedade exclusiva. O uso não autorizado é proibido.</p>
-            </div>
-            <div>
-                <h3>2. E-commerce e Pagamento</h3>
-                <p><b>Preços e Pagamento:</b> O valor de R$ 19,90 é processado via Stripe através de Cartão de Crédito (Visa, Master), Apple Pay ou Boleto. Não aceitamos Pix.</p>
-                <p><b>Troca, Devolução e Reembolso:</b> Conforme o Código de Defesa do Consumidor, garantimos 7 dias para arrependimento com reembolso total.</p>
-                <p><b>Entrega e Prazos:</b> A entrega é digital e imediata via e-mail após a confirmação do pagamento. Em caso de atraso, contate o suporte.</p>
-                <p><b>Privacidade (LGPD):</b> Seus dados são tratados conforme nossa Política de Privacidade, vinculada a este contrato.</p>
-            </div>
-        </div>
-        <div class="mt-8 pt-6 border-t border-white/10 text-center">
-            <p><b>Foro e Contato:</b> Fica eleito o foro da comarca da nossa sede para disputas. Contato: suporte@nexusalpha.com</p>
-        </div>
-    </div>
-    """
+def obter_copy_produto(tema):
+    # Base de dados de copy detalhada para cada produto
+    dados = {
+        "Score 900 Turbo": {
+            "headline": "A Chave Mestra para destravar seu Crédito Bancário em tempo recorde.",
+            "descricao": "O Protocolo Score 900 é um método matemático testado para elevar sua pontuação nos birôs de crédito através de gatilhos de comportamento bancário.",
+            "modulos": ["Módulo 1: O Algoritmo Bancário Oculto", "Módulo 2: Limpeza de Consultas Excessivas", "Módulo 3: O Gatilho de Aprovação Imediata"],
+            "beneficios": "Consiga financiamentos, cartões de crédito de alto limite e juros menores em qualquer banco.",
+            "faq": [("É seguro?", "Sim, o método utiliza apenas leis de transparência bancária."), ("Quanto tempo leva?", "Os primeiros resultados aparecem entre 7 a 14 dias.")]
+        },
+        "Renda Extra": {
+            "headline": "Transforme seu Tempo Livre em uma Máquina de Ganhos Diários.",
+            "descricao": "Aprenda as estratégias de arbitragem digital e micro-tarefas premium que as empresas não querem que você saiba.",
+            "modulos": ["Módulo 1: Configuração de Carteiras Digitais", "Módulo 2: O Mercado de Micro-arbitragem", "Módulo 3: Escala de Ganhos com Automação"],
+            "beneficios": "Liberdade geográfica e financeira trabalhando apenas 2 horas por dia usando seu celular.",
+            "faq": [("Preciso investir?", "Não, o método foca em gerar renda com custo zero."), ("Funciona em qualquer celular?", "Sim, basta ter acesso à internet.")]
+        },
+        "Planilha Lucros": {
+            "headline": "A Inteligência Artificial que Organiza e Multiplica seu Patrimônio.",
+            "descricao": "Uma ferramenta automatizada que analisa seus gastos e projeta sua liberdade financeira com dashboards profissionais.",
+            "modulos": ["Módulo 1: Integração IA de Gastos", "Módulo 2: Projeção de Investimentos", "Módulo 3: Identificação de Desperdício Oculto"],
+            "beneficios": "Tenha clareza total de cada centavo e saiba exatamente quando você poderá se aposentar.",
+            "faq": [("É difícil de usar?", "Não, a planilha é 100% intuitiva e automatizada."), ("Funciona no celular?", "Sim, via Google Sheets ou Excel Mobile.")]
+        }
+    }
+    return dados.get(tema, dados["Score 900 Turbo"])
 
 def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
+    copy = obter_copy_produto(tema)
+    
+    # 3 Relacionados Garantidos
     html_relacionados = ""
-    if relacionados:
-        for p in relacionados:
-            html_relacionados += f'''
-            <a href="{p['slug']}.html" class="glass p-8 block hover:bg-white/10 transition-all text-center">
-                <h4 class="titulo-master text-lg mb-2 italic" style="color: #39FF14">{p['nome']}</h4>
-                <p class="text-white font-bold text-2xl">{p['preco']}</p>
-            </a>'''
+    for p in relacionados:
+        html_relacionados += f'''
+        <a href="{p['slug']}.html" class="glass p-8 block hover:bg-white/10 transition-all text-center border border-white/5">
+            <h4 class="titulo-master text-lg mb-2 italic" style="color: #39FF14">{p['nome']}</h4>
+            <p class="text-white font-bold text-2xl">{p['preco']}</p>
+        </a>'''
 
-    secao_relacionados = f"""
-    <div class="mt-24 pt-16 border-t border-white/10">
-        <h3 class="text-white titulo-master text-3xl mb-10 uppercase italic text-center">Protocolos Recomendados</h3>
-        <div class="grid md:grid-cols-3 gap-6">{html_relacionados}</div>
-    </div>""" if eh_detalhes else ""
-
+    # Estrutura de Landing Page (Headline, Benefícios, FAQ, Garantia)
     conteudo_venda = ""
     if eh_detalhes:
+        html_modulos = "".join([f'<li class="mb-2"><i class="fas fa-arrow-right text-green-500 mr-2"></i>{m}</li>' for m in copy['modulos']])
+        html_faq = "".join([f'<div class="faq-item"><strong>{q}</strong><p class="opacity-70 text-sm mt-2">{a}</p></div>' for q, a in copy['faq']])
+        
         conteudo_venda = f"""
-        <div class="mt-16 space-y-12">
+        <div class="mt-10 space-y-16">
             <div class="text-center">
-                <h1 class="titulo-master text-6xl md:text-8xl mb-4 italic">#{tema}</h1>
-                <div class="glass p-4 inline-block neon-border mt-10"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=500" class="rounded-xl"></div>
+                <h1 class="titulo-master text-4xl md:text-7xl mb-6 italic leading-tight">{copy['headline']}</h1>
+                <p class="text-xl opacity-80 max-w-2xl mx-auto">{copy['descricao']}</p>
             </div>
-            
-            <div class="glass p-12 text-center neon-border">
-                <div class="titulo-master text-8xl my-8">{preco}</div>
-                <a href="{link}" class="btn-venda py-8 text-2xl uppercase shadow-[0_0_50px_rgba(57,255,20,0.3)]">ADQUIRIR AGORA</a>
-                <div class="flex justify-center gap-6 mt-6 text-2xl opacity-70">
-                    <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-apple-pay"></i> <i class="fas fa-barcode"></i>
+
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="glass p-4 neon-border shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" class="rounded-xl w-full">
                 </div>
-                <p class="text-[10px] mt-4 opacity-50 uppercase tracking-widest font-bold">Checkout Seguro via Stripe</p>
+                <div class="glass p-10 text-center">
+                    <span class="text-green-500 font-bold uppercase tracking-widest text-xs">Oferta Exclusiva Nexus</span>
+                    <div class="titulo-master text-8xl my-6">{preco}</div>
+                    <a href="{link}" class="btn-venda py-8 text-2xl uppercase shadow-lg">Comprar Agora</a>
+                    <div class="flex justify-center gap-4 mt-6 text-xl opacity-60">
+                        <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-apple-pay"></i> <i class="fas fa-barcode"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="beneficio-card">
+                    <h3 class="titulo-master text-xl mb-4">Principais Benefícios:</h3>
+                    <p class="opacity-90">{copy['beneficios']}</p>
+                </div>
+                <div class="glass p-8">
+                    <h3 class="titulo-master text-xl mb-4">Conteúdo do Produto:</h3>
+                    <ul class="text-sm">{html_modulos}</ul>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass p-8 italic border-l-4 border-green-500">
+                    "Mudou meu jogo. Em 10 dias meu limite subiu 4x. Recomendo muito!"<br><br><strong>- João P., São Paulo</strong>
+                </div>
+                <div class="glass p-8 flex items-center gap-6">
+                    <i class="fas fa-shield-alt text-5xl text-green-500"></i>
+                    <div>
+                        <h4 class="font-bold uppercase">Garantia Blindada</h4>
+                        <p class="text-xs opacity-70">Satisfação garantida ou seu dinheiro de volta em 7 dias. Risco zero para você.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-10">
+                <h3 class="titulo-master text-2xl mb-6 text-center italic">Perguntas Frequentes</h3>
+                <div class="max-w-2xl mx-auto">{html_faq}</div>
             </div>
             
-            {obter_secao_termos_completa()}
+            <div class="mt-20 p-8 glass text-[10px] opacity-40 border-t border-white/10">
+                <p class="mb-4"><b>Termos de Uso e LGPD:</b> Ao adquirir, você aceita nossas cláusulas de responsabilidade e tratamento de dados. Aceitação imediata via checkout seguro Stripe.</p>
+            </div>
         </div>"""
     else:
         conteudo_venda = f'<h1 class="titulo-master text-7xl md:text-9xl mb-12 italic">#{tema}</h1><a href="detalhes.html" class="btn-venda py-6 text-xl max-w-sm">ENTRAR NO SISTEMA</a>'
@@ -96,15 +132,21 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
     <body>
         <div class="bg-hero"></div>
         <div class="max-w-6xl mx-auto px-6 py-20">
-            <header class="flex justify-between items-center mb-20">
+            <header class="flex justify-between items-center mb-10">
                 <a href="index.html" class="text-2xl font-black italic tracking-tighter uppercase">NEXUS<span class="text-green-500">ALPHA</span></a>
-                <div class="text-[10px] font-bold uppercase tracking-widest opacity-50">Legal Compliance v7.0</div>
+                <div class="text-[10px] font-bold uppercase tracking-widest opacity-50">High Conversion System v8.0</div>
             </header>
+            
             {conteudo_venda}
-            {secao_relacionados}
+            
+            <div class="mt-24 pt-16 border-t border-white/10">
+                <h3 class="text-white titulo-master text-3xl mb-10 uppercase italic text-center">Protocolos Relacionados</h3>
+                <div class="grid md:grid-cols-3 gap-6">{html_relacionados}</div>
+            </div>
+
             <footer class="mt-32 py-10 border-t border-white/10 text-[10px] opacity-40 text-center uppercase tracking-widest font-bold">
-                <p>© 2026 Nexus Alpha System - Brasil</p>
-                <div class="mt-4 flex justify-center gap-6">
+                <p>© 2026 Nexus Alpha System - Brasil | Suporte: suporte@nexusalpha.com</p>
+                <div class="mt-6 flex justify-center gap-8 font-bold">
                     <a href="privacidade.html" class="hover:text-green-500">Política de Privacidade</a>
                     <a href="termos.html" class="hover:text-green-500">Termos de Uso</a>
                 </div>
@@ -127,7 +169,6 @@ def criar_pagina_vendas(tema, link_stripe):
     for p in relacionados:
         with open(f"{p['slug']}.html", "w", encoding="utf-8") as f:
             f.write(gerar_layout_pagina(p['nome'], p['preco'], p['link'], eh_detalhes=True, relacionados=relacionados))
-    # Páginas legais individuais mantidas por segurança SEO
     with open("privacidade.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina("Política de Privacidade", "", "", eh_detalhes=True))
     with open("termos.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina("Termos de Uso", "", "", eh_detalhes=True))
 
