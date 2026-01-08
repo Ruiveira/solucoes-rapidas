@@ -17,31 +17,9 @@
         .btn-venda { background: #fff; color: #000; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; }
         .btn-venda:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
         
-        /* Estilização dos Logos de Pagamento */
-        .payment-container {
-            margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        .logos-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            font-size: 24px;
-            color: #ddd;
-        }
-        .pix-text {
-            font-weight: 800;
-            color: #32BCAD;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            border: 1px solid #32BCAD;
-            padding: 2px 8px;
-            border-radius: 5px;
-        }
+        .payment-container { margin-top: 25px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .logos-row { display: flex; justify-content: center; align-items: center; gap: 20px; font-size: 24px; }
+        .pix-text { font-weight: 800; color: #32BCAD; font-family: 'Montserrat', sans-serif; font-size: 14px; border: 1px solid #32BCAD; padding: 2px 8px; border-radius: 5px; }
     </style>
     
     </head>
@@ -56,28 +34,27 @@
             
     <div class="grid md:grid-cols-2 gap-12 mt-16">
         <div class="glass p-10">
-            <h3 class="titulo-master text-2xl mb-6 uppercase italic">O que você vai dominar:</h3>
-            <p class="text-slate-300 leading-relaxed mb-6">Descubra como transformar seu tempo livre em uma máquina de gerar capital utilizando apenas o seu celular. Método validado de micro-tarefas.</p>
+            <h3 class="titulo-master text-2xl mb-6 uppercase italic">O que você recebe:</h3>
+            <p class="text-slate-300 leading-relaxed mb-6">Método validado para gerar ganhos diários usando apenas o celular e conexão estável.</p>
             <ul class="space-y-4 text-sm">
                 <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Acesso Vitalício</li>
-                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Atualizações Inclusas</li>
-                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Suporte Prioritário</li>
+                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Entrega Imediata</li>
             </ul>
         </div>
         <div class="glass p-10 text-center flex flex-col justify-center">
-            <span class="text-xs font-bold uppercase tracking-widest text-green-400 mb-2 italic">Disponível Agora</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-green-400 mb-2 italic">Oferta Ativa</span>
             <div class="text-white titulo-master text-7xl mb-8 tracking-tighter" style="color:white">R$ 19,90</div>
             <a href="https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
             
     <div class="payment-container">
         <div class="logos-row">
             <span class="pix-text">PIX</span>
-            <i class="fab fa-cc-visa" style="color: #1a1f71;"></i>
-            <i class="fab fa-cc-mastercard" style="color: #eb001b;"></i>
-            <i class="fab fa-apple-pay" style="color: #fff;"></i>
-            <i class="fas fa-barcode" style="color: #aaa;"></i>
+            <i class="fab fa-cc-visa" style="color: #fff; opacity: 0.9;"></i>
+            <i class="fab fa-cc-mastercard" style="color: #fff; opacity: 0.9;"></i>
+            <i class="fab fa-apple-pay" style="color: #fff; opacity: 0.9;"></i>
+            <i class="fas fa-barcode" style="color: #fff; opacity: 0.7;"></i>
         </div>
-        <p class="text-[9px] opacity-40 uppercase tracking-widest">Pagamento 100% Seguro via Stripe</p>
+        <p class="text-[9px] opacity-40 uppercase tracking-widest">Pagamento Seguro via Stripe</p>
     </div>
     
         </div>

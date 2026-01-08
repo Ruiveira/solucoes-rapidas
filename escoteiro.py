@@ -16,41 +16,19 @@ def criar_estilo():
         .btn-venda {{ background: #fff; color: #000; font-family: 'Montserrat', sans-serif; font-weight: 800; transition: 0.3s; display: block; width: 100%; text-align: center; }}
         .btn-venda:hover {{ transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }}
         
-        /* Estilização dos Logos de Pagamento */
-        .payment-container {{
-            margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }}
-        .logos-row {{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            font-size: 24px;
-            color: #ddd;
-        }}
-        .pix-text {{
-            font-weight: 800;
-            color: #32BCAD;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            border: 1px solid #32BCAD;
-            padding: 2px 8px;
-            border-radius: 5px;
-        }}
+        .payment-container {{ margin-top: 25px; display: flex; flex-direction: column; align-items: center; gap: 10px; }}
+        .logos-row {{ display: flex; justify-content: center; align-items: center; gap: 20px; font-size: 24px; }}
+        .pix-text {{ font-weight: 800; color: #32BCAD; font-family: 'Montserrat', sans-serif; font-size: 14px; border: 1px solid #32BCAD; padding: 2px 8px; border-radius: 5px; }}
     </style>
     """
 
 def obter_copy(tema):
     copys = {
-        "Score 900 Turbo": "Chega de ter crédito negado. Nosso protocolo revela os 7 'triggers' bancários que aumentam sua pontuação de forma orgânica e acelerada.",
-        "Renda Extra": "Descubra como transformar seu tempo livre em uma máquina de gerar capital utilizando apenas o seu celular. Método validado de micro-tarefas.",
-        "Planilha Lucros": "Quem não mede, não gerencia. Esta ferramenta automatizada com IA organiza seus gastos, projeta seus lucros e identifica onde você perde dinheiro."
+        "Score 900 Turbo": "Protocolo para destravar seu crédito e elevar sua pontuação bancária rapidamente.",
+        "Renda Extra": "Método validado para gerar ganhos diários usando apenas o celular e conexão estável.",
+        "Planilha Lucros": "Ferramenta de IA para organizar finanças, projetar lucros e estancar perdas de capital."
     }
-    return copys.get(tema, "Protocolo de Alta Performance.")
+    return copys.get(tema, "Protocolo de Alta Performance Nexus Alpha.")
 
 def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
     copy_detalhada = obter_copy(tema)
@@ -69,33 +47,31 @@ def gerar_layout_pagina(tema, preco, link, eh_detalhes=False, relacionados=[]):
         <div class="grid md:grid-cols-3 gap-6">{html_relacionados}</div>
     </div>""" if eh_detalhes else ""
 
-    # BLOCO DE PAGAMENTO CORRIGIDO
     logos_pagamento = """
     <div class="payment-container">
         <div class="logos-row">
             <span class="pix-text">PIX</span>
-            <i class="fab fa-cc-visa" style="color: #1a1f71;"></i>
-            <i class="fab fa-cc-mastercard" style="color: #eb001b;"></i>
-            <i class="fab fa-apple-pay" style="color: #fff;"></i>
-            <i class="fas fa-barcode" style="color: #aaa;"></i>
+            <i class="fab fa-cc-visa" style="color: #fff; opacity: 0.9;"></i>
+            <i class="fab fa-cc-mastercard" style="color: #fff; opacity: 0.9;"></i>
+            <i class="fab fa-apple-pay" style="color: #fff; opacity: 0.9;"></i>
+            <i class="fas fa-barcode" style="color: #fff; opacity: 0.7;"></i>
         </div>
-        <p class="text-[9px] opacity-40 uppercase tracking-widest">Pagamento 100% Seguro via Stripe</p>
+        <p class="text-[9px] opacity-40 uppercase tracking-widest">Pagamento Seguro via Stripe</p>
     </div>
     """
 
     conteudo_venda = f"""
     <div class="grid md:grid-cols-2 gap-12 mt-16">
         <div class="glass p-10">
-            <h3 class="titulo-master text-2xl mb-6 uppercase italic">O que você vai dominar:</h3>
+            <h3 class="titulo-master text-2xl mb-6 uppercase italic">O que você recebe:</h3>
             <p class="text-slate-300 leading-relaxed mb-6">{copy_detalhada}</p>
             <ul class="space-y-4 text-sm">
                 <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Acesso Vitalício</li>
-                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Atualizações Inclusas</li>
-                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Suporte Prioritário</li>
+                <li><i class="fas fa-check-circle mr-2 text-green-500"></i> Entrega Imediata</li>
             </ul>
         </div>
         <div class="glass p-10 text-center flex flex-col justify-center">
-            <span class="text-xs font-bold uppercase tracking-widest text-green-400 mb-2 italic">Disponível Agora</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-green-400 mb-2 italic">Oferta Ativa</span>
             <div class="text-white titulo-master text-7xl mb-8 tracking-tighter" style="color:white">{preco}</div>
             <a href="{link}" class="btn-venda py-6 rounded-2xl text-xl uppercase tracking-tighter shadow-lg">Adquirir Agora</a>
             {logos_pagamento}
@@ -133,8 +109,11 @@ def criar_pagina_vendas(tema, link_stripe):
         {"nome": "Renda Extra", "preco": preco_final, "slug": "renda", "link": link_venda},
         {"nome": "Planilha Lucros", "preco": preco_final, "slug": "planilha", "link": link_venda}
     ]
+    # GERA PÁGINA PRINCIPAL
     with open("index.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, preco_final, "detalhes.html"))
+    # GERA PÁGINA DE DETALHES (HML PRINCIPAL)
     with open("detalhes.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, preco_final, link_venda, eh_detalhes=True, relacionados=relacionados))
+    # GERA AS PÁGINAS DOS RELACIONADOS (SCORE, RENDA, PLANILHA)
     for p in relacionados:
         with open(f"{p['slug']}.html", "w", encoding="utf-8") as f:
             outros = [i for i in relacionados if i['slug'] != p['slug']]
