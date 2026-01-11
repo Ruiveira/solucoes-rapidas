@@ -1,72 +1,105 @@
 <!DOCTYPE html>
-    <html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Score 900 Turbo | Nexus Alpha</title>
+    <html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Score 900 Turbo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Inter:wght@400;700;900&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background: #020617; color: #fff; margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
-        .bg-hero { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95) 0%, rgba(2, 6, 23, 1) 100%), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1600&auto=format&fit=crop'); background-size: cover; background-position: center; z-index: -1; }
+        :root { --neon: #39FF14; --dark: #020617; }
         
-        /* Títulos Maiores e Impactantes */
-        .titulo-master { font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: -0.05em; color: #39FF14; text-transform: uppercase; font-style: italic; line-height: 1.1; }
-        .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(30px); border-radius: 1.5rem; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--dark); 
+            color: #fff; 
+            margin: 0; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+        }
+
+        /* Camada de Fundo Estática para Performance */
+        .bg-fixed { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: radial-gradient(circle at top right, rgba(57, 255, 20, 0.05), transparent), var(--dark);
+            z-index: -1; 
+        }
         
-        /* BOTÃO ADQUIRIR AGORA - LINHA ÚNICA E TEXTO GRANDE */
-        .btn-venda { 
-            background: #39FF14 !important; 
-            color: #000 !important; 
+        /* Títulos com Força de Conversão */
+        .titulo-master { 
             font-family: 'Montserrat', sans-serif; 
             font-weight: 900; 
+            color: var(--neon); 
+            text-transform: uppercase; 
+            font-style: italic; 
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .glass { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(20px); 
+            border-radius: 2rem; 
+        }
+
+        /* VALOR R$ 19,90 - TAMANHO UNIFICADO E GIGANTE */
+        .valor-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 5rem; /* Tamanho Elite */
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            white-space: nowrap;
+        }
+        .valor-container span { font-size: 5rem; }
+
+        /* BOTÃO ADQUIRIR AGORA - LINHA ÚNICA */
+        .btn-cta { 
+            background: var(--neon); 
+            color: #000; 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 900; 
+            font-size: 1.8rem; 
+            padding: 1.5rem 2rem; 
+            border-radius: 1.2rem; 
+            text-decoration: none; 
             display: inline-flex; 
             align-items: center; 
             justify-content: center;
-            width: 100%; 
-            max-width: 550px; 
-            border-radius: 1rem; 
-            text-decoration: none; 
-            padding: 1.5rem 1rem; 
-            font-size: 2rem; 
-            white-space: nowrap; 
-            text-transform: uppercase;
-            box-shadow: 0 0 25px rgba(57, 255, 20, 0.5);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .btn-venda:hover { transform: scale(1.04); box-shadow: 0 0 50px rgba(57, 255, 20, 0.8); }
-        
-        /* VALOR R$ 19,90 - MESMO TAMANHO E ALINHADO */
-        .valor-branco { 
-            color: #FFFFFF !important; 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 900; 
-            font-size: 5.5rem; 
-            display: flex; 
-            flex-direction: row;
-            align-items: center; 
-            justify-content: center; 
-            gap: 20px; 
+            width: 100%;
+            max-width: 600px;
             white-space: nowrap;
-            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .valor-branco span { font-size: 5.5rem; } /* R$ exatamente igual ao 19,90 */
+        .btn-cta:hover { transform: scale(1.03); box-shadow: 0 0 60px rgba(57, 255, 20, 0.6); }
 
-        /* TEXTOS AUMENTADOS PARA ALTA CONVERSÃO */
-        .descricao-texto { font-size: 1.6rem; line-height: 1.6; color: #e2e8f0; font-weight: 400; }
-        .label-beneficio { font-size: 1.3rem; font-weight: 700; color: #39FF14; }
+        /* Textos de Apoio */
+        .texto-corpo { font-size: 1.5rem; line-height: 1.6; color: #94a3b8; }
+        .badge-neon { color: var(--neon); font-weight: 900; font-size: 1.2rem; text-transform: uppercase; }
 
-        /* RESPONSIVIDADE MOBILE OTIMIZADA */
-        @media (max-width: 600px) {
-            .valor-branco, .valor-branco span { font-size: 3.5rem; gap: 10px; }
-            .btn-venda { font-size: 1.4rem; padding: 1.2rem 0.5rem; }
-            .titulo-master { font-size: 2.5rem !important; }
-            .descricao-texto { font-size: 1.2rem; }
+        /* Otimização Mobile Extrema */
+        @media (max-width: 640px) {
+            .valor-container, .valor-container span { font-size: 3.5rem; }
+            .btn-cta { font-size: 1.4rem; padding: 1.2rem 1rem; }
+            .titulo-master { font-size: 2.8rem !important; }
+            .texto-corpo { font-size: 1.2rem; }
         }
-        
-        .img-premium { width: 100%; border-radius: 1.2rem; border: 2px solid #39FF14; box-shadow: 0 0 40px rgba(57, 255, 20, 0.3); object-fit: cover; }
+
+        .img-ia { 
+            width: 100%; 
+            border-radius: 1.5rem; 
+            border: 2px solid var(--neon); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+        }
     </style>
     </head>
-    <body><div class="bg-hero"></div><div class="max-w-6xl mx-auto px-6 py-16">
-    <header class="flex justify-between items-center mb-20"><a href="index.html" class="text-3xl font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-xs opacity-50 font-bold italic text-white uppercase tracking-widest">System Active 2026</div></header>
-    <div class="text-center py-20"><h1 class="titulo-master text-7xl md:text-9xl mb-12">#Score 900 Turbo</h1><a href="ia-pro.html" class="btn-venda">ENTRAR AGORA</a></div>
-    <footer class="mt-32 py-12 border-t border-white/10 text-xs opacity-30 text-center uppercase tracking-widest font-bold">
-    <p>© 2026 Nexus Alpha System - Brasil</p></footer></div></body></html>
+    <body><div class="bg-fixed"></div><div class="max-w-6xl mx-auto px-6 py-12">
+    <header class="flex justify-between items-center mb-20"><span class="text-2xl font-black italic">NEXUS<span class="text-green-500">ALPHA</span></span><span class="text-[10px] opacity-40 font-bold uppercase tracking-widest">IA Active 2026</span></header>
+    <div class="text-center py-32"><h1 class="titulo-master text-8xl md:text-9xl mb-16 italic">#Score 900 Turbo</h1><a href="ia-pro.html" class="btn-cta">INICIAR SISTEMA</a></div>
+    <footer class="mt-40 py-12 border-t border-white/10 text-center opacity-20 text-[10px] font-bold uppercase tracking-widest">Nexus Alpha System Brasil</footer></div></body></html>

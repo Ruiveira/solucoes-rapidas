@@ -1,156 +1,174 @@
 import os
 
 def criar_estilo():
-    # Background tecnológico com overlay escuro para destacar o texto
-    foto_unificada = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1600&auto=format&fit=crop"
+    # URL da imagem do especialista solicitada
+    img_ia_investor = "https://images.squarespace-cdn.com/content/v1/5f973693e54f0a28f4f3e696/1706645353153-6U1V5X7X9P4Z4W5Z5X5Z/IA_Investor_Pro_Expert.jpg"
+    
     return f"""
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Inter:wght@400;700;900&display=swap');
         
-        body {{ font-family: 'Inter', sans-serif; background: #020617; color: #fff; margin: 0; scroll-behavior: smooth; overflow-x: hidden; }}
-        .bg-hero {{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95) 0%, rgba(2, 6, 23, 1) 100%), url('{foto_unificada}'); background-size: cover; background-position: center; z-index: -1; }}
+        :root {{ --neon: #39FF14; --dark: #020617; }}
         
-        /* Títulos Maiores e Impactantes */
-        .titulo-master {{ font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: -0.05em; color: #39FF14; text-transform: uppercase; font-style: italic; line-height: 1.1; }}
-        .glass {{ background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(30px); border-radius: 1.5rem; }}
+        body {{ 
+            font-family: 'Inter', sans-serif; 
+            background: var(--dark); 
+            color: #fff; 
+            margin: 0; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+        }}
+
+        /* Camada de Fundo Estática para Performance */
+        .bg-fixed {{ 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: radial-gradient(circle at top right, rgba(57, 255, 20, 0.05), transparent), var(--dark);
+            z-index: -1; 
+        }}
         
-        /* BOTÃO ADQUIRIR AGORA - LINHA ÚNICA E TEXTO GRANDE */
-        .btn-venda {{ 
-            background: #39FF14 !important; 
-            color: #000 !important; 
+        /* Títulos com Força de Conversão */
+        .titulo-master {{ 
             font-family: 'Montserrat', sans-serif; 
             font-weight: 900; 
+            color: var(--neon); 
+            text-transform: uppercase; 
+            font-style: italic; 
+            line-height: 1;
+            letter-spacing: -2px;
+        }}
+
+        .glass {{ 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(20px); 
+            border-radius: 2rem; 
+        }}
+
+        /* VALOR R$ 19,90 - TAMANHO UNIFICADO E GIGANTE */
+        .valor-container {{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 5rem; /* Tamanho Elite */
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            white-space: nowrap;
+        }}
+        .valor-container span {{ font-size: 5rem; }}
+
+        /* BOTÃO ADQUIRIR AGORA - LINHA ÚNICA */
+        .btn-cta {{ 
+            background: var(--neon); 
+            color: #000; 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 900; 
+            font-size: 1.8rem; 
+            padding: 1.5rem 2rem; 
+            border-radius: 1.2rem; 
+            text-decoration: none; 
             display: inline-flex; 
             align-items: center; 
             justify-content: center;
-            width: 100%; 
-            max-width: 550px; 
-            border-radius: 1rem; 
-            text-decoration: none; 
-            padding: 1.5rem 1rem; 
-            font-size: 2rem; 
-            white-space: nowrap; 
-            text-transform: uppercase;
-            box-shadow: 0 0 25px rgba(57, 255, 20, 0.5);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }}
-        .btn-venda:hover {{ transform: scale(1.04); box-shadow: 0 0 50px rgba(57, 255, 20, 0.8); }}
-        
-        /* VALOR R$ 19,90 - MESMO TAMANHO E ALINHADO */
-        .valor-branco {{ 
-            color: #FFFFFF !important; 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 900; 
-            font-size: 5.5rem; 
-            display: flex; 
-            flex-direction: row;
-            align-items: center; 
-            justify-content: center; 
-            gap: 20px; 
+            width: 100%;
+            max-width: 600px;
             white-space: nowrap;
-            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }}
-        .valor-branco span {{ font-size: 5.5rem; }} /* R$ exatamente igual ao 19,90 */
+        .btn-cta:hover {{ transform: scale(1.03); box-shadow: 0 0 60px rgba(57, 255, 20, 0.6); }}
 
-        /* TEXTOS AUMENTADOS PARA ALTA CONVERSÃO */
-        .descricao-texto {{ font-size: 1.6rem; line-height: 1.6; color: #e2e8f0; font-weight: 400; }}
-        .label-beneficio {{ font-size: 1.3rem; font-weight: 700; color: #39FF14; }}
+        /* Textos de Apoio */
+        .texto-corpo {{ font-size: 1.5rem; line-height: 1.6; color: #94a3b8; }}
+        .badge-neon {{ color: var(--neon); font-weight: 900; font-size: 1.2rem; text-transform: uppercase; }}
 
-        /* RESPONSIVIDADE MOBILE OTIMIZADA */
-        @media (max-width: 600px) {{
-            .valor-branco, .valor-branco span {{ font-size: 3.5rem; gap: 10px; }}
-            .btn-venda {{ font-size: 1.4rem; padding: 1.2rem 0.5rem; }}
-            .titulo-master {{ font-size: 2.5rem !important; }}
-            .descricao-texto {{ font-size: 1.2rem; }}
+        /* Otimização Mobile Extrema */
+        @media (max-width: 640px) {{
+            .valor-container, .valor-container span {{ font-size: 3.5rem; }}
+            .btn-cta {{ font-size: 1.4rem; padding: 1.2rem 1rem; }}
+            .titulo-master {{ font-size: 2.8rem !important; }}
+            .texto-corpo {{ font-size: 1.2rem; }}
         }}
-        
-        .img-premium {{ width: 100%; border-radius: 1.2rem; border: 2px solid #39FF14; box-shadow: 0 0 40px rgba(57, 255, 20, 0.3); object-fit: cover; }}
+
+        .img-ia {{ 
+            width: 100%; 
+            border-radius: 1.5rem; 
+            border: 2px solid var(--neon); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+        }}
     </style>
     """
 
-def obter_copy_vendas(tema):
-    # Imagem solicitada para IA Investor Pro (Especialista + Robô)
-    img_ia_investor = "https://images.squarespace-cdn.com/content/v1/5f973693e54f0a28f4f3e696/1706645353153-6U1V5X7X9P4Z4W5Z5X5Z/IA_Investor_Pro_Expert.jpg"
-    
+def obter_copy(tema):
+    img_ia = "https://images.squarespace-cdn.com/content/v1/5f973693e54f0a28f4f3e696/1706645353153-6U1V5X7X9P4Z4W5Z5X5Z/IA_Investor_Pro_Expert.jpg"
     banco = {
-        "Score 900 Turbo": {
-            "headline": "ELEVE SEU SCORE PARA 900 PONTOS AGORA",
-            "descricao": "A tecnologia definitiva para limpar seu histórico e destravar cartões Black imediatamente.",
-            "beneficios": "Acesso aos melhores limites bancários do mercado brasileiro.",
-            "img": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200",
-            "avaliacoes": ["'Meu score subiu em 12 dias!' - Ricardo S.", "'Finalmente aprovada.' - Amanda L."]
-        },
-        "Renda Extra": {
-            "headline": "RENDA EXTRA DIÁRIA COM IA",
-            "descricao": "Use nosso sistema de arbitragem assistida para lucrar diariamente usando apenas o celular.",
-            "beneficios": "Trabalhe 1h por dia e tenha liberdade financeira real.",
-            "img": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1200",
-            "avaliacoes": ["'R$ 150 logo no início.' - Marcos V.", "'Muito simples e direto.' - Beatriz F."]
-        },
         "IA Investor Pro": {
-            "headline": "IA INVESTOR PRO: OPERE TENDÊNCIAS NO AUTOMÁTICO",
-            "descricao": "O robô que identifica padrões lucrativos em diagramas de tendência em tempo real, 24 horas por dia.",
-            "beneficios": "Tecnologia de ponta com análise massiva de dados para sua rentabilidade.",
-            "img": img_ia_investor,
-            "avaliacoes": ["'A precisão é surpreendente.' - Gabriel T.", "'O robô trabalha por mim.' - Sofia R."]
+            "h1": "IA INVESTOR PRO",
+            "p": "O algoritmo avançado que opera diagramas de tendência em tempo real. Lucratividade automatizada com precisão cirúrgica.",
+            "check": "Tecnologia de Arbitragem 2026",
+            "img": img_ia,
+            "av": ["'O robô trabalha por mim 24h.' - Sofia R.", "'Minha rentabilidade mudou.' - Gabriel T."]
+        },
+        "Score 900 Turbo": {
+            "h1": "SCORE 900 TURBO",
+            "p": "Limpeza de histórico e ativação de gatilhos bancários. Destrave cartões Black e limites altos hoje.",
+            "check": "Aprovação Imediata",
+            "img": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200",
+            "av": ["'Meu score foi de 300 para 850.' - Ricardo S.", "'Cartão aprovado na hora.' - Amanda L."]
         }
     }
-    return banco.get(tema, banco["Score 900 Turbo"])
+    return banco.get(tema, banco["IA Investor Pro"])
 
-def gerar_layout_pagina(tema, preco, link, eh_produto=False, relacionados=[]):
-    copy = obter_copy_vendas(tema)
+def gerar_layout_pagina(tema, preco, link, eh_produto=False):
+    copy = obter_copy(tema)
     
     if eh_produto:
-        html_avalia = "".join([f'<div class="glass p-6 italic text-xl">"{a}"</div>' for a in copy['avaliacoes']])
+        html_av = "".join([f'<div class="glass p-6 italic text-xl">"{a}"</div>' for a in copy['av']])
         conteudo = f"""
-        <div class="text-center mb-12"><h1 class="titulo-master text-4xl md:text-7xl mb-6">{copy['headline']}</h1></div>
+        <div class="text-center mb-16"><h1 class="titulo-master text-6xl md:text-8xl italic">{copy['h1']}</h1></div>
         
-        <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <div class="p-2"><img src="{copy['img']}" class="img-premium" alt="IA INVESTOR PRO"></div>
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+            <div><img src="{copy['img']}" class="img-ia" alt="IA Investor"></div>
             <div class="space-y-8">
-                <h3 class="titulo-master text-3xl italic text-white">O SISTEMA ELITE</h3>
-                <p class="descricao-texto">{copy['descricao']}</p>
-                <div class="glass p-8 border-l-4 border-green-500">
-                    <p class="text-green-400 font-bold uppercase label-beneficio mb-2">Vantagem Exclusiva</p>
-                    <p class="text-xl">{copy['beneficios']}</p>
+                <p class="badge-neon"><i class="fas fa-microchip mr-2"></i> EXCLUSIVO NEXUS ALPHA</p>
+                <p class="texto-corpo">{copy['p']}</p>
+                <div class="glass p-6 border-l-4 border-green-500">
+                    <p class="font-bold text-white text-xl">{copy['check']}</p>
                 </div>
             </div>
         </div>
 
-        <div class="mb-20">
-            <h3 class="titulo-master text-center text-3xl mb-10 italic">PROVA SOCIAL</h3>
-            <div class="grid md:grid-cols-2 gap-8">{html_avalia}</div>
+        <div class="mb-24">
+            <h2 class="titulo-master text-center text-3xl mb-12 italic">AVALIAÇÕES REAIS</h2>
+            <div class="grid md:grid-cols-2 gap-8">{html_av}</div>
         </div>
 
-        <div class="glass p-16 text-center mb-12 border-2 border-green-500/20">
-            <div class="valor-branco"><span>R$</span> 19,90</div>
-            <a href="{link}" class="btn-venda">ADQUIRIR AGORA</a>
-            <p class="mt-8 text-lg font-bold opacity-60 uppercase tracking-widest">
-                <i class="fas fa-check-double text-green-500 mr-2"></i>Acesso Imediato + Suporte VIP
+        <div class="glass p-12 text-center border-2 border-green-500/30">
+            <div class="valor-container"><span>R$</span> 19,90</div>
+            <a href="{link}" class="btn-cta">ADQUIRIR AGORA</a>
+            <p class="mt-8 text-sm opacity-50 uppercase tracking-widest font-bold">
+                <i class="fas fa-lock mr-2"></i> Pagamento Seguro | Acesso Imediato
             </p>
         </div>
         """
     else:
-        conteudo = f'<div class="text-center py-20"><h1 class="titulo-master text-7xl md:text-9xl mb-12">#{tema}</h1><a href="ia-pro.html" class="btn-venda">ENTRAR AGORA</a></div>'
+        conteudo = f'<div class="text-center py-32"><h1 class="titulo-master text-8xl md:text-9xl mb-16 italic">#{tema}</h1><a href="ia-pro.html" class="btn-cta">INICIAR SISTEMA</a></div>'
 
     return f"""<!DOCTYPE html>
-    <html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{tema} | Nexus Alpha</title>{criar_estilo()}</head>
-    <body><div class="bg-hero"></div><div class="max-w-6xl mx-auto px-6 py-16">
-    <header class="flex justify-between items-center mb-20"><a href="index.html" class="text-3xl font-black italic text-white no-underline">NEXUS<span class="text-green-500">ALPHA</span></a><div class="text-xs opacity-50 font-bold italic text-white uppercase tracking-widest">System Active 2026</div></header>
+    <html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>{tema}</title>{criar_estilo()}</head>
+    <body><div class="bg-fixed"></div><div class="max-w-6xl mx-auto px-6 py-12">
+    <header class="flex justify-between items-center mb-20"><span class="text-2xl font-black italic">NEXUS<span class="text-green-500">ALPHA</span></span><span class="text-[10px] opacity-40 font-bold uppercase tracking-widest">IA Active 2026</span></header>
     {conteudo}
-    <footer class="mt-32 py-12 border-t border-white/10 text-xs opacity-30 text-center uppercase tracking-widest font-bold">
-    <p>© 2026 Nexus Alpha System - Brasil</p></footer></div></body></html>"""
+    <footer class="mt-40 py-12 border-t border-white/10 text-center opacity-20 text-[10px] font-bold uppercase tracking-widest">Nexus Alpha System Brasil</footer></div></body></html>"""
 
 def criar_pagina_vendas(tema, link_stripe):
     link_final = "https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v"
-    preco_texto = "R$ 19,90"
-    rel = [
-        {"nome": "Score 900 Turbo", "slug": "score"},
-        {"nome": "Renda Extra", "slug": "renda"},
-        {"nome": "IA Investor Pro", "slug": "ia-pro"}
-    ]
-    with open("index.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, preco_texto, "ia-pro.html"))
-    for p in rel:
-        with open(f"{p['slug']}.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(p['nome'], preco_texto, link_final, eh_produto=True))
+    with open("index.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina(tema, "R$ 19,90", "ia-pro.html"))
+    with open("ia-pro.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina("IA Investor Pro", "R$ 19,90", link_final, eh_produto=True))
+    with open("score.html", "w", encoding="utf-8") as f: f.write(gerar_layout_pagina("Score 900 Turbo", "R$ 19,90", link_final, eh_produto=True))

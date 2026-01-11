@@ -244,3 +244,9 @@ Traceback (most recent call last):
   File "/Users/Alan/nexus_alpha/escoteiro.py", line 1, in <module>
     cat << 'EOF' > escoteiro.py
 NameError: name 'cat' is not defined
+Traceback (most recent call last):
+  File "integrador.py", line 3, in <module>
+    import notifier
+  File "/Users/Alan/nexus_alpha/notifier.py", line 1, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
