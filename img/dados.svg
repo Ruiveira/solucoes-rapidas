@@ -1,0 +1,9 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="400" fill="#000000"/>
+<circle cx="200" cy="150" r="100" fill="#3b82f6" opacity="0.1"/>
+<circle cx="200" cy="150" r="70" fill="#3b82f6" opacity="0.2"/>
+<rect x="130" y="200" width="140" height="100" fill="#3b82f6" opacity="0.4" rx="10"/>
+<line x1="130" y1="230" x2="270" y2="230" stroke="white" stroke-width="2"/>
+<line x1="130" y1="260" x2="270" y2="260" stroke="white" stroke-width="2"/>
+<text x="200" y="360" text-anchor="middle" fill="#3b82f6" font-size="28" font-weight="bold">DADOS</text>
+</svg>

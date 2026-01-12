@@ -1,0 +1,8 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="400" fill="#0a0a0a"/>
+        <circle cx="200" cy="150" r="80" fill="#f59e0b" opacity="0.2"/>
+        <circle cx="200" cy="150" r="50" fill="#f59e0b" opacity="0.4"/>
+        <rect x="130" y="200" width="140" height="20" fill="#f59e0b" opacity="0.6"/>
+        <rect x="130" y="230" width="140" height="20" fill="#f59e0b" opacity="0.6"/>
+        <text x="200" y="350" text-anchor="middle" fill="#f59e0b" font-size="30" font-weight="bold">BLOCKCHAIN</text>
+    </svg>

@@ -1,156 +1,264 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --neon: #39FF14;
-            --dark: #020617;
-        }
-        
-        body {
-            background: var(--dark);
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-        }
-        
-        .bg-nexus {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.94) 0%, rgba(2, 6, 23, 1) 100%), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1600');
-            background-size: cover;
-            z-index: -1;
-        }
-        
-        .titulo-elite {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            color: var(--neon);
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
-        
-        .logo-link {
-            text-decoration: none;
-            color: #fff;
-            transition: 0.3s;
-            display: inline-block;
-        }
-        
-        .logo-link:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 10px var(--neon));
-        }
-        
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(57, 255, 20, 0.2);
-            backdrop-filter: blur(20px);
-            border-radius: 2rem;
-        }
-        
-        .price-box {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 6rem;
-            line-height: 1;
-            color: #fff;
-        }
-        
-        .btn-neon {
-            background: var(--neon) !important;
-            color: #000 !important;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            padding: 1.8rem;
-            border-radius: 1rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            box-shadow: 0 0 50px rgba(57, 255, 20, 0.4);
-            transition: 0.4s;
-        }
-        
-        .btn-neon:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 80px var(--neon);
-        }
-        
-        .img-premium {
-            width: 100%;
-            border-radius: 2rem;
-            border: 3px solid var(--neon);
-            box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
-        }
-        
-        .behance-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 1.5rem;
-            border: 1px solid var(--neon);
-            margin: 3rem 0;
-        }
-        
-        .behance-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        @media (max-width: 600px) {
-            .price-box {
-                font-size: 3.5rem;
-            }
-            .btn-neon {
-                font-size: 1.4rem;
-            }
-            .titulo-elite {
-                font-size: 2.5rem !important;
-            }
-        }
-    </style>
-
+    <title>NEXUS ALPHA • Sistema Definitivo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="bg-nexus"></div>
-    
-    <header class="flex justify-between items-center mb-20 max-w-6xl mx-auto p-6">
-        <a href="index.html" class="logo-link titulo-elite text-4xl">NEXUS<span class="text-white">ALPHA</span></a>
-        <div class="text-[10px] opacity-40 font-bold italic text-white uppercase tracking-widest">IA Active 2026</div>
-    </header>
-    
-    
-        <div class="text-center py-40">
-            <h1 class="titulo-elite text-8xl md:text-[12rem] italic">NEXUS ALPHA</h1>
-            <a href="ia-pro.html" class="btn-neon mx-auto max-w-sm px-10 mt-10">INICIAR</a>
+    <!-- NAVEGAÇÃO -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">NEXUS<span>ALPHA</span></a>
+            <div class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#recursos">Recursos</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="#contato">Contato</a>
+                <a href="https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v" class="btn-nav">COMPRAR AGORA</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">ACESSO VIP • 2024</div>
+            <h1>DOMINÂNCIA <span>TOTAL</span></h1>
+            <p>O sistema definitivo de alta performance para quem exige resultados extraordinários. 
+            Tecnologia de ponta combinada com estratégias comprovadas.</p>
+            
+            <div class="price"><span>R$</span>19,90</div>
+            
+            <a href="https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v" class="btn-main">
+                <i class="fas fa-bolt"></i> GARANTIR ACESSO IMEDIATO
+            </a>
+            
+            <p style="font-size: 14px; margin-top: 20px; color: #999;">
+                ✅ 7 dias de garantia • ✅ Suporte 24/7 • ✅ Atualizações gratuitas
+            </p>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+        <div class="container">
+            <div class="section-grid">
+                <div class="section-content">
+                    <h2>Sistema de Elite para Resultados Extraordinários</h2>
+                    <p>O <strong>Nexus Alpha</strong> é a ferramenta definitiva desenvolvida para quem não aceita resultados medianos. 
+                    Combinamos tecnologia de ponta com estratégias comprovadas para entregar performance máxima.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Infraestrutura 100% segura e criptografada</li>
+                        <li>Processamento em tempo real com IA avançada</li>
+                        <li>Dashboard inteligente com análises preditivas</li>
+                        <li>Suporte técnico prioritário 24/7</li>
+                        <li>Atualizações automáticas e gratuitas</li>
+                    </ul>
+                    
+                    <a href="https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v" class="btn-main" style="padding: 15px 40px;">
+                        <i class="fas fa-rocket"></i> COMEÇAR AGORA
+                    </a>
+                </div>
+                
+                <div class="section-image">
+                    <img src="img/seguranca.svg" alt="Segurança Nexus Alpha">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECURSOS -->
+    <section id="recursos" class="section">
+        <div class="container">
+            <div class="section-grid">
+                <div class="section-image">
+                    <img src="img/ia.svg" alt="Inteligência Artificial">
+                </div>
+                
+                <div class="section-content">
+                    <h2>Inteligência Artificial Avançada</h2>
+                    <p>Nossa IA exclusiva analisa milhões de dados em tempo real para identificar oportunidades 
+                    e otimizar estratégias automaticamente.</p>
+                    
+                    <p>Com algoritmos de machine learning de última geração, o sistema aprende e se adapta 
+                    continuamente para maximizar seus resultados.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Análise preditiva com 95% de precisão</li>
+                        <li>Automação inteligente de processos</li>
+                        <li>Alertas em tempo real de oportunidades</li>
+                        <li>Otimização automática de estratégias</li>
+                        <li>Relatórios detalhados com insights acionáveis</li>
+                    </ul>
+                    
+                    <a href="https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v" class="btn-main" style="padding: 15px 40px;">
+                        <i class="fas fa-brain"></i> ATIVAR IA AGORA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios" class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px; font-size: 42px;">
+                Benefícios <span style="color: #10b981;">Exclusivos</span>
+            </h2>
+            
+            <div class="benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança Máxima</h3>
+                    <p>Criptografia AES-256, autenticação multifator e proteção contra ameaças em tempo real.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Performance Extrema</h3>
+                    <p>Processamento ultrarrápido com latência inferior a 0.5ms para execuções instantâneas.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análises Avançadas</h3>
+                    <p>Dashboards inteligentes com métricas em tempo real e relatórios detalhados.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automação Total</h3>
+                    <p>Sistema que trabalha 24/7 automaticamente, sem necessidade de intervenção manual.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suporte Elite</h3>
+                    <p>Atendimento prioritário 24/7 com resposta garantida em menos de 5 minutos.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Atualizações Constantes</h3>
+                    <p>Novas funcionalidades e melhorias liberadas automaticamente sem custo adicional.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v" class="btn-main" style="padding: 20px 60px; font-size: 20px;">
+                    <i class="fas fa-crown"></i> OBTER ACESSO VIP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section" style="text-align: center; background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);">
+        <div class="container">
+            <h2 style="font-size: 48px; margin-bottom: 20px;">
+                Comece Sua Jornada <span style="color: #10b981;">Hoje</span>
+            </h2>
+            
+            <p style="font-size: 20px; max-width: 700px; margin: 0 auto 40px; color: #cccccc;">
+                Junte-se a milhares de profissionais que já transformaram seus resultados com o Nexus Alpha.
+                Risco zero com nossa garantia de 7 dias.
+            </p>
+            
+            <div class="price" style="margin: 30px 0;"><span>R$</span>19,90</div>
+            
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="https://buy.stripe.com/9B6fZ976y7zJ6qn0jl4c80v" class="btn-main" style="padding: 20px 50px;">
+                    <i class="fas fa-shopping-cart"></i> COMPRAR AGORA
+                </a>
+                
+                <a href="#contato" class="btn-main" style="background: transparent; border: 2px solid #10b981; color: #10b981;">
+                    <i class="fas fa-question-circle"></i> TIRAR DÚVIDAS
+                </a>
+            </div>
+            
+            <p style="margin-top: 30px; color: #999; font-size: 14px;">
+                <i class="fas fa-lock"></i> Pagamento 100% seguro via Stripe • 
+                <i class="fas fa-sync-alt"></i> Cancelamento a qualquer momento •
+                <i class="fas fa-shield-alt"></i> Dados protegidos
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato" class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>NEXUS ALPHA</h4>
+                <p style="color: #cccccc; font-size: 14px; line-height: 1.6;">
+                    Sistema definitivo de alta performance para resultados extraordinários. 
+                    Tecnologia de elite para quem exige excelência.
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>PRODUTOS</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Nexus Alpha Pro</a></li>
+                    <li><a href="#">Investor IA</a></li>
+                    <li><a href="#">Score 900 Elite</a></li>
+                    <li><a href="#">Hacker Ads</a></li>
+                    <li><a href="#">Renda Alpha</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>RECURSOS</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Documentação</a></li>
+                    <li><a href="#">Tutoriais</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Status</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>SUPORTE</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                    <li><a href="#">Status do Sistema</a></li>
+                </ul>
+            </div>
         </div>
         
-    
-    <footer class="mt-40 py-20 border-t border-white/10 text-center">
-        <div class="flex justify-center gap-10 mb-10 text-xs font-bold uppercase opacity-60">
-            <a href="privacidade.html" class="text-white no-underline hover:text-green-500">Privacidade</a>
-            <a href="termos.html" class="text-white no-underline hover:text-green-500">Termos de Uso</a>
+        <div class="footer-bottom">
+            <p>© <span id="current-year">2024</span> Nexus Alpha Holding. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; font-size: 11px;">
+                Este site não é afiliado ao Facebook, Google ou qualquer outra plataforma mencionada.
+            </p>
         </div>
-        <p class="text-[10px] opacity-20 uppercase font-bold tracking-widest">© 2026 Nexus Alpha System</p>
     </footer>
-    
+
+    <script src="js/main.js"></script>
 </body>
 </html>

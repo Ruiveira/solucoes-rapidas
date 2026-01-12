@@ -1,0 +1,7 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="400" fill="#0a0a0a"/>
+        <circle cx="200" cy="150" r="80" fill="#ef4444" opacity="0.2"/>
+        <circle cx="200" cy="150" r="50" fill="#ef4444" opacity="0.4"/>
+        <polygon points="150,220 200,280 250,220" fill="#ef4444" opacity="0.6"/>
+        <text x="200" y="350" text-anchor="middle" fill="#ef4444" font-size="30" font-weight="bold">REDE</text>
+    </svg>
