@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de preço de serviço para autônomos | Gratuita</title>
+<meta name="description" content="Calcule um preço de referência para serviços autônomos com custos, horas e margem. Simulador grátis e privado no navegador.">
+<style>
+:root{font-family:system-ui,-apple-system,sans-serif;color:#132d40;background:#f3f7f8}*{box-sizing:border-box}body{margin:0}
+main{max-width:900px;margin:auto;padding:28px 17px 70px}h1{font-size:clamp(28px,5vw,44px);letter-spacing:-1px}
+header{background:#15334a;color:white;padding:18px 22px}header a{color:white;text-decoration:none;font-weight:750}
+.card{background:#fff;padding:24px;border-radius:20px;box-shadow:0 5px 26px #1a36420d;margin:20px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:15px}
+label{display:block;font-weight:650;font-size:14px}input{width:100%;padding:13px;margin-top:7px;font-size:17px;border:1px solid #b4c8cc;border-radius:10px}input:focus{outline:3px solid #cde8e2}
+.result{background:#0e6158;color:white;padding:22px;border-radius:15px;margin-top:20px}output{font-size:clamp(28px,6vw,42px);font-weight:800;display:block}
+small,p{line-height:1.55}small{color:#52656b}.result small{color:#d4ece7}button{border:0;border-radius:9px;padding:13px 18px;background:#15334a;color:#fff;font-weight:700;cursor:pointer}
+.notice{padding:13px;border-left:4px solid #cc9c43;background:#fff8e8}
+</style></head><body><header><a href="./">Soluções Rápidas</a></header>
+<main><h1>Calculadora de preço de serviço</h1><p>Simule quanto cobrar por um trabalho com base em horas, despesas e margem. Tudo é calculado no seu navegador, sem cadastro nem envio dos valores a servidor.</p>
+<section class="card"><div class="grid">
+<label>Horas estimadas de trabalho<input type="number" id="hours" min="0" step="0.5" value="5"></label>
+<label>Valor por hora (R$)<input type="number" id="hourrate" min="0" step=".01" value="40"></label>
+<label>Materiais e despesas diretas (R$)<input type="number" id="direct" min="0" step=".01" value="50"></label>
+<label>Outros custos do serviço (R$)<input type="number" id="other" min="0" step=".01" value="10"></label>
+<label>Taxas/tributos sobre o preço (%)<input type="number" id="fees" min="0" max="95" step=".1" value="10"></label>
+<label>Margem desejada sobre o preço (%)<input type="number" id="margin" min="0" max="95" step=".1" value="15"></label>
+</div><div class="result"><small>Preço calculado para cobrir valores e percentuais informados</small>
+<output id="total" aria-live="polite">—</output><small id="detail">Altere os campos para recalcular.</small></div>
+<p class="notice" id="warning">É uma estimativa, não recomendação fiscal ou tabela obrigatória. Confirme impostos e custos reais antes de fechar proposta.</p>
+<button id="copy" type="button">Copiar resumo</button></section>
+<section class="card"><h2>Como funciona?</h2><p>Primeiro somamos horas × valor da hora, materiais e demais despesas. Depois dividimos pelo percentual restante após taxas e margem. Exemplo: 10% de taxas e 15% de margem significam que os custos devem representar 75% do preço.</p>
+<p>Use a simulação como ponto de partida; a demanda, a concorrência, o contrato e o risco do serviço também importam.</p></section>
+</main>
+<script>
+const ids=['hours','hourrate','direct','other','fees','margin'];const money=x=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(x);let summary='';
+function recalc(){const v=ids.map(k=>Math.max(0,Number(document.getElementById(k).value)||0)),[h,rate,direct,other,fees,margin]=v;
+const base=h*rate+direct+other, divisor=1-(fees+margin)/100;
+const bad=divisor<=0;
+document.getElementById('total').textContent=bad?'Percentuais inválidos':money(base/divisor);
+document.getElementById('detail').textContent=bad?'A soma das taxas e da margem deve ser menor que 100%.':('Custo informado: '+money(base)+' · Taxas: '+fees+'% · Margem: '+margin+'%');
+summary=bad?'':'Preço sugerido: '+money(base/divisor)+' | Custos: '+money(base)+' | Taxas: '+fees+'% | Margem: '+margin+'%';
+}
+ids.forEach(k=>document.getElementById(k).addEventListener('input',recalc));
+document.getElementById('copy').addEventListener('click',async()=>{if(!summary)return;try{await navigator.clipboard.writeText(summary);document.getElementById('copy').textContent='Resumo copiado'}catch(e){document.getElementById('copy').textContent='Selecione os valores para copiar'}});
+recalc();
+</script></body></html>
