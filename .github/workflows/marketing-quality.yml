@@ -1,0 +1,58 @@
+name: Marketing page quality check
+on:
+  push:
+    branches: [main]
+    paths:
+      - "kit-gestao-autonomos.html"
+      - "calculadora-preco-autonomo.html"
+      - "como-calcular-preco-de-servico.html"
+      - "index.html"
+      - "sitemap.xml"
+      - ".github/workflows/marketing-quality.yml"
+  schedule:
+    - cron: "15 11 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check on-site links and SEO metadata without paid services
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          from urllib.parse import urlsplit
+          from xml.etree import ElementTree as ET
+
+          base=Path(".")
+          names=["kit-gestao-autonomos.html","calculadora-preco-autonomo.html","como-calcular-preco-de-servico.html"]
+          class Inspect(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.refs=[]; self.has_title=False; self.has_desc=False
+              def handle_starttag(self, tag, attrs):
+                  d=dict(attrs)
+                  if tag=="title": self.has_title=True
+                  if tag=="meta" and d.get("name","").lower()=="description" and d.get("content"): self.has_desc=True
+                  if tag=="a" and d.get("href"):self.refs.append(d["href"])
+          for name in names:
+              p=base/name
+              assert p.is_file(),f"Missing: {name}"
+              parser=Inspect(); parser.feed(p.read_text(encoding="utf-8"))
+              assert parser.has_title and parser.has_desc,f"Missing title/description in {name}"
+              for ref in parser.refs:
+                  if ref.startswith(("#","mailto:","tel:")):continue
+                  parsed=urlsplit(ref)
+                  if parsed.scheme or ref.startswith("//"):continue
+                  target=parsed.path.strip()
+                  if not target:continue
+                  assert (p.parent/target).exists(),f"Broken internal link: {name} -> {ref}"
+          root=ET.parse("sitemap.xml").getroot()
+          ns={"s":"http://www.sitemaps.org/schemas/sitemap/0.9"}
+          links=[x.text for x in root.findall(".//s:loc",ns)]
+          for name in names:
+              assert any(x and x.endswith("/"+name) for x in links),f"Missing sitemap URL: {name}"
+          print("Marketing pages and sitemap validated")
+          PY
