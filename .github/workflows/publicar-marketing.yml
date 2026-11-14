@@ -1,0 +1,48 @@
+name: Publicar site de marketing
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'marketing/**'
+      - '.github/workflows/publicar-marketing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: paginas-marketing
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar conteúdo
+        uses: actions/checkout@v4
+      - name: Preparar Pages
+        uses: actions/configure-pages@v5
+      - name: Montar site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site/marketing
+          cp marketing/*.html _site/marketing/
+          touch _site/.nojekyll
+          printf '%s\n' '<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=marketing/"><title>Gestão Simples</title><p><a href="marketing/">Abrir Gestão Simples</a></p></html>' > _site/index.html
+      - name: Enviar site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Publicar GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
