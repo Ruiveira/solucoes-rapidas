@@ -8,6 +8,8 @@ on:
       - "como-calcular-preco-de-servico.html"
       - "index.html"
       - "sitemap.xml"
+      - "marketing/**"
+      - "gomove/**"
       - ".github/workflows/marketing-quality.yml"
   schedule:
     - cron: "15 11 * * 1"
@@ -28,7 +30,7 @@ jobs:
           from xml.etree import ElementTree as ET
 
           base=Path(".")
-          names=["kit-gestao-autonomos.html","calculadora-preco-autonomo.html","como-calcular-preco-de-servico.html"]
+          names=["kit-gestao-autonomos.html","calculadora-preco-autonomo.html","como-calcular-preco-de-servico.html", "marketing/index.html", "marketing/calculadora.html", "marketing/recebimentos.html", "marketing/propostas.html", "gomove/index.html"]
           class Inspect(HTMLParser):
               def __init__(self):
                   super().__init__(); self.refs=[]; self.has_title=False; self.has_desc=False
@@ -53,6 +55,6 @@ jobs:
           ns={"s":"http://www.sitemaps.org/schemas/sitemap/0.9"}
           links=[x.text for x in root.findall(".//s:loc",ns)]
           for name in names:
-              assert any(x and x.endswith("/"+name) for x in links),f"Missing sitemap URL: {name}"
+              assert any(x and (x.endswith("/"+name) or (name.endswith("index.html") and x.endswith("/"+name.removesuffix("index.html")))) for x in links),f"Missing sitemap URL: {name}"
           print("Marketing pages and sitemap validated")
           PY
