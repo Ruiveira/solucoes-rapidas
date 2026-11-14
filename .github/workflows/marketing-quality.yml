@@ -10,6 +10,7 @@ on:
       - "sitemap.xml"
       - "marketing/**"
       - "gomove/**"
+      - "livro/**"
       - ".github/workflows/marketing-quality.yml"
   schedule:
     - cron: "15 11 * * *"
@@ -30,7 +31,7 @@ jobs:
           from xml.etree import ElementTree as ET
 
           base=Path(".")
-          names=["kit-gestao-autonomos.html","calculadora-preco-autonomo.html","como-calcular-preco-de-servico.html", "marketing/index.html", "marketing/calculadora.html", "marketing/recebimentos.html", "marketing/propostas.html", "gomove/index.html"]
+          names=["kit-gestao-autonomos.html","calculadora-preco-autonomo.html","como-calcular-preco-de-servico.html", "marketing/index.html", "marketing/calculadora.html", "marketing/recebimentos.html", "marketing/propostas.html", "gomove/index.html", "livro/index.html"]
           class Inspect(HTMLParser):
               def __init__(self):
                   super().__init__(); self.refs=[]; self.has_title=False; self.has_desc=False
