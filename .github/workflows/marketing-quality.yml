@@ -12,7 +12,7 @@ on:
       - "gomove/**"
       - ".github/workflows/marketing-quality.yml"
   schedule:
-    - cron: "15 11 * * 1"
+    - cron: "15 11 * * *"
   workflow_dispatch:
 permissions:
   contents: read
