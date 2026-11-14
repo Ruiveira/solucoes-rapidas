@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'marketing/**'
+      - 'gomove/**'
       - '.github/workflows/publicar-marketing.yml'
   workflow_dispatch:
 
@@ -28,8 +29,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p _site/marketing
+          mkdir -p _site/marketing _site/gomove
           cp marketing/*.html _site/marketing/
+          cp gomove/*.html _site/gomove/
+          cp marketing/sitemap.xml _site/sitemap.xml
           touch _site/.nojekyll
           printf '%s\n' '<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=marketing/"><title>Gestão Simples</title><p><a href="marketing/">Abrir Gestão Simples</a></p></html>' > _site/index.html
       - name: Enviar site
